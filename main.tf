@@ -1,157 +1,197 @@
-terraform {
-  required_providers {
-    google = {
-      source  = "hashicorp/google"
-      version = "4.51.0"
-    }
+provider "google" {
+  credentials = file("./neat-vista-422604-c3-e68cc6362761.json")
+  project     = "neat-vista-422604-c3"
+  region      = "us-west1"
+}
+
+# VPC 1
+resource "google_compute_network" "vpc_network_1" {
+  name = "terraform-network-1"
+  auto_create_subnetworks = "false"
+}
+
+resource "google_compute_subnetwork" "subnet_1a" {
+  name          = "subnet-1a"
+  ip_cidr_range = "10.0.1.0/24"
+  region        = "us-west1"
+  network       = google_compute_network.vpc_network_1.name
+}
+
+
+# VPC 2
+resource "google_compute_network" "vpc_network_2" {
+  name = "terraform-network-2"
+  auto_create_subnetworks = "false"
+}
+
+resource "google_compute_subnetwork" "subnet_2a" {
+  name          = "subnet-2a"
+  ip_cidr_range = "10.0.2.0/24"
+  region        = "us-west1"
+  network       = google_compute_network.vpc_network_2.name
+}
+
+resource "google_compute_network_peering" "peering1to2" {
+  name         = "peering1to2"
+  network      = google_compute_network.vpc_network_1.id
+  peer_network = google_compute_network.vpc_network_2.self_link
+  provisioner "local-exec" {
+    command = "sleep 30"
+    on_failure = continue
+  }
+
+  lifecycle {
+    create_before_destroy = true
   }
 }
 
-provider "google" {
-  project = "neat-vista-422604-c3"
+resource "google_compute_network_peering" "peering2to1" {
+  name         = "peering2to1"
+  network      = google_compute_network.vpc_network_2.id
+  peer_network = google_compute_network.vpc_network_1.self_link
+  provisioner "local-exec" {
+    command = "sleep 30"
+    on_failure = continue
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
-# Create vpc1
-resource "google_compute_network" "vpc1" {
-  name                    = "vpc1"
-  auto_create_subnetworks = false
-}
 
-# Create vpc2
-resource "google_compute_network" "vpc2" {
-  name                    = "vpc2"
-  auto_create_subnetworks = false
-}
-
-# Create subnet1
-resource "google_compute_subnetwork" "subnet1" {
-  name          = "subnet1"
-  ip_cidr_range = "10.1.0.0/24"
-  network       = google_compute_network.vpc1.self_link
-  region        = "us-west1"
-}
-
-# Create subnet2
-resource "google_compute_subnetwork" "subnet2" {
-  name          = "subnet2"
-  ip_cidr_range = "10.2.0.0/24"
-  network       = google_compute_network.vpc2.self_link
-  region        = "us-west1"
-}
-
-# Resource definition for a Google Compute Engine instance in vpc1
-resource "google_compute_instance" "vm1" {
-  name         = "vm1"
-  machine_type = "e2-micro"
+# VM in Subnet 1a
+resource "google_compute_instance" "vm_1a" {
+  name         = "vm-1a"
+  machine_type = "f1-micro"
   zone         = "us-west1-a"
 
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-10" # Specify the boot disk image
+      image = "ubuntu-os-cloud/ubuntu-2004-lts"
     }
   }
 
-  # Specify the network interface for vm1
   network_interface {
-    network    = google_compute_network.vpc1.self_link
-    subnetwork = google_compute_subnetwork.subnet1.self_link
+    network    = google_compute_network.vpc_network_1.name
+    subnetwork = google_compute_subnetwork.subnet_1a.name
+
     access_config {
-      // Ephemeral IP
+      // Include this section to give the VM an external IP address
     }
   }
 
-  # Upload the private key file to the instance
-  /*provisioner "file" {
-    source      = "./terraform_key"
-    destination = "/tmp/terraform_key" # Destination path on the instance
+  metadata = {
+    ssh-keys = "student:${file("~/.ssh/id_rsa_student.pub")}"
+  }
 
-    # Specify connection configuration
+  tags = ["student"]
+
+  provisioner "remote-exec" {
     connection {
       type        = "ssh"
-      user        = "ssh_user"
-      private_key = file("./terraform_key")
-      host        = self.network_interface[0].access_config[0].nat_ip
+      user        = "student"
+      private_key = file("~/.ssh/id_rsa_student")
+      host        = google_compute_instance.vm_1a.network_interface[0].access_config[0].nat_ip
     }
 
+    inline = [
+      "sudo useradd -m student",
+      "sudo mkdir /home/student/.ssh",
+      "sudo cp /home/student/.ssh/authorized_keys /home/student/.ssh/",
+      "sudo chown -R student:student /home/student/.ssh",
+      "sudo chmod 700 /home/student/.ssh",
+      "sudo chmod 600 /home/student/.ssh/authorized_keys"
+    ]
+  }
+}
+
+# VM in Subnet 2a
+resource "google_compute_instance" "vm_2a" {
+  name         = "vm-2a"
+  machine_type = "f1-micro"
+  zone         = "us-west1-a"
+
+  boot_disk {
+    initialize_params {
+      image = "ubuntu-os-cloud/ubuntu-2004-lts"
+    }
   }
 
-  # Enable SSH By Setting the SSH Public Key File Path
+  network_interface {
+    network    = google_compute_network.vpc_network_2.name
+    subnetwork = google_compute_subnetwork.subnet_2a.name
+
+    access_config {
+      // Include this section to give the VM an external IP address
+    }
+  }
+
   metadata = {
-    ssh-keys = "ssh_user:./terraform_key.pub"
-  }*/
+    ssh-keys = "professor:${file("~/.ssh/id_rsa_professor.pub")}"
+  }
 
-  metadata_startup_script = "sudo apt-get update; sudo apt-get install auditd -y; sudo systemctl start auditd; sudo systemctl enable auditd"
+  tags = ["professor"]
 
-  /*provisioner "remote-exec" {
-    inline = ["sudo apt update", "sudo apt install audit"]
-
+  provisioner "remote-exec" {
     connection {
-      type     = "ssh"
-      port = 22
-      user     = "ssh_user"
-      password = ""
-      host = self.network_interface[0].access_config[0].nat_ip
-      private_key = "/tmp/terraform_key"
-      timeout = "5m"
+      type        = "ssh"
+      user        = "professor"
+      private_key = file("~/.ssh/id_rsa_professor")
+      host        = google_compute_instance.vm_2a.network_interface[0].access_config[0].nat_ip
     }
-  }
-  provisioner "local-exec" {
-	command = "ansible-playbook -i 35.230.91.235, playbook.yaml"
-  }*/
 
+    inline = [
+      "sudo useradd -m professor",
+      "sudo mkdir /home/professor/.ssh",
+      "sudo cp /home/professor/.ssh/authorized_keys /home/professor/.ssh/",
+      "sudo chown -R professor:professor /home/professor/.ssh",
+      "sudo chmod 700 /home/professor/.ssh",
+      "sudo chmod 600 /home/professor/.ssh/authorized_keys"
+    ]
+  }
 }
 
-# Resource definition for a Google Compute Engine instance in vpc1
-resource "google_compute_instance" "vm2" {
-  name         = "vm2"
-  machine_type = "e2-micro"
-  zone         = "us-west1-a"
+# Firewall rules to allow SSH and port 8888 between VPCs
 
-  boot_disk {
-    initialize_params {
-      image = "debian-cloud/debian-10" # Specify the boot disk image
-    }
+# SSH Firewall rule for VPC 1
+resource "google_compute_firewall" "ssh_firewall_1" {
+  name    = "ssh-firewall-1"
+  network = google_compute_network.vpc_network_1.name
+
+  allow {
+    protocol = "tcp"
+    ports    = ["22"]
   }
 
-  # Specify the network interface for vm2
-  network_interface {
-    network    = google_compute_network.vpc2.self_link
-    subnetwork = google_compute_subnetwork.subnet2.self_link
-    access_config {
-      // Ephemeral IP
-    }
-  }
-
-  metadata_startup_script = "sudo apt-get update; sudo apt-get install auditd -y; sudo systemctl start auditd; sudo systemctl enable auditd"
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["student"]
 }
 
-# Routing node to connect vpcs
-resource "google_compute_instance" "routing_node" {
-  name         = "routing-node"
-  machine_type = "e2-micro"
-  zone         = "us-west1-a"
+# Port 8888 Firewall rule for VPC 1
+resource "google_compute_firewall" "allow-application" {
+  name    = "allow-application"
+  network = google_compute_network.vpc_network_1.name
 
-  boot_disk {
-    initialize_params {
-      image = "debian-cloud/debian-10" # Specify the boot disk image
-    }
+  allow {
+    protocol = "tcp"
+    ports    = ["8888"]
   }
 
-  # Specify the network interface for routing node
-  network_interface {
-    network    = google_compute_network.vpc1.self_link
-    subnetwork = google_compute_subnetwork.subnet1.self_link
-    access_config {
-      // Ephemeral IP
-    }
+  source_ranges = ["10.0.2.0/24"]  // Adjust based on your network's CIDR or specific needs
+  target_tags   = ["student"]
+}
+
+# SSH Firewall rule for VPC 2
+resource "google_compute_firewall" "ssh_firewall_2" {
+  name    = "ssh-firewall-2"
+  network = google_compute_network.vpc_network_2.name
+
+  allow {
+    protocol = "tcp"
+    ports    = ["22"]
   }
 
-  # Specify the network interface for routing node
-  network_interface {
-    network    = google_compute_network.vpc2.self_link
-    subnetwork = google_compute_subnetwork.subnet2.self_link
-    access_config {
-      // Ephemeral IP
-    }
-  }
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["professor"]
 }

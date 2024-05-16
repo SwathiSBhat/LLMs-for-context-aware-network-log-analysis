@@ -1,0 +1,10 @@
+.idea/
+.vscode/
+.terraform
+.terraform.lock.hcl
+.terraform.tfstate.lock.info
+.terraform.tfstate.lock.info.backup
+terraform.tfstate
+terraform.tfstate.backup
+neat-vista-422604-c3-e68cc6362761.json
+.env
