@@ -1,0 +1,98 @@
+---
+- name: Install and configure auditd and filebeat
+  hosts: all
+  become: yes
+  become_user: root
+
+  tasks:
+    - name: Ensure auditd is installed
+      apt:
+        name: auditd
+        state: present
+    - debug:
+        msg: "Auditd installation complete."
+
+    - name: Start auditd service
+      service:
+        name: auditd
+        state: started
+    - debug:
+        msg: "Auditd service started."
+
+    - name: Download filebeat
+      get_url:
+        url: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-8.13.4-linux-x86_64.tar.gz
+        dest: /home/filebeat-8.13.4-linux-x86_64.tar.gz
+    - debug:
+        msg: "Filebeat download complete."
+
+    - name: Extract filebeat tarball
+      command: tar -xvzf /home/filebeat-8.13.4-linux-x86_64.tar.gz -C /home/
+    - debug:
+        msg: "Filebeat extraction complete."
+
+    - name: Copy filebeat.yml to remote server
+      copy:
+        src: ./filebeat.yml
+        dest: /home/filebeat-8.13.4-linux-x86_64/filebeat.yml
+        owner: root
+    - debug:
+        msg: "filebeat.yml copied and owner set."
+
+    - name: Enable auditd module in filebeat
+      command: ./filebeat modules enable auditd
+      args:
+        chdir: /home/filebeat-8.13.4-linux-x86_64/
+    - debug:
+        msg: "Auditd module enabled in Filebeat."
+
+    - name: Update auditd.yml module configuration
+      copy:
+        src: ./auditd.yml
+        dest: /home/filebeat-8.13.4-linux-x86_64/modules.d/auditd.yml
+        owner: root
+    - debug:
+        msg: "Auditd module configuration updated."
+
+    - name: Run filebeat setup
+      command: ./filebeat setup -e
+      args:
+        chdir: /home/filebeat-8.13.4-linux-x86_64/
+    - debug:
+        msg: "Filebeat setup complete."
+
+    - name: Set ownership of filebeat.yml
+      file:
+        path: /home/filebeat-8.13.4-linux-x86_64/filebeat.yml
+        owner: root
+        group: root
+    - debug:
+        msg: "Ownership of filebeat.yml set."
+
+    - name: Set ownership of auditd.yml module
+      file:
+        path: /home/filebeat-8.13.4-linux-x86_64/modules.d/auditd.yml
+        owner: root
+        group: root
+    - debug:
+        msg: "Ownership of auditd.yml set."
+
+    - name: Set ownership of auditd manifest file
+      file:
+        path: /home/filebeat-8.13.4-linux-x86_64/module/auditd/log/manifest.yml
+        owner: root
+        group: root
+    - debug:
+        msg: "Ownership of auditd manifest file set."
+
+    - name: Start filebeat in the background
+      command: nohup ./filebeat -e &
+      args:
+        chdir: /home/filebeat-8.13.4-linux-x86_64/
+    - debug:
+        msg: "Filebeat started in the background."
+
+    - name: Final success message
+      debug:
+        msg: "Playbook executed successfully."
+

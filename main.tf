@@ -6,8 +6,8 @@ provider "google" {
 
 # VPC 1
 resource "google_compute_network" "vpc_network_1" {
-  name = "terraform-network-1"
-  auto_create_subnetworks = "false"
+  name                    = "terraform-network-1"
+  auto_create_subnetworks = false
 }
 
 resource "google_compute_subnetwork" "subnet_1a" {
@@ -17,11 +17,10 @@ resource "google_compute_subnetwork" "subnet_1a" {
   network       = google_compute_network.vpc_network_1.name
 }
 
-
 # VPC 2
 resource "google_compute_network" "vpc_network_2" {
-  name = "terraform-network-2"
-  auto_create_subnetworks = "false"
+  name                    = "terraform-network-2"
+  auto_create_subnetworks = false
 }
 
 resource "google_compute_subnetwork" "subnet_2a" {
@@ -36,7 +35,7 @@ resource "google_compute_network_peering" "peering1to2" {
   network      = google_compute_network.vpc_network_1.id
   peer_network = google_compute_network.vpc_network_2.self_link
   provisioner "local-exec" {
-    command = "sleep 30"
+    command    = "sleep 30"
     on_failure = continue
   }
 
@@ -50,7 +49,7 @@ resource "google_compute_network_peering" "peering2to1" {
   network      = google_compute_network.vpc_network_2.id
   peer_network = google_compute_network.vpc_network_1.self_link
   provisioner "local-exec" {
-    command = "sleep 30"
+    command    = "sleep 30"
     on_failure = continue
   }
 
@@ -58,7 +57,6 @@ resource "google_compute_network_peering" "peering2to1" {
     create_before_destroy = true
   }
 }
-
 
 # VM in Subnet 1a
 resource "google_compute_instance" "vm_1a" {
@@ -195,3 +193,37 @@ resource "google_compute_firewall" "ssh_firewall_2" {
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["professor"]
 }
+
+# First null_resource for the first virtual machine
+resource "null_resource" "ansible_playbook_vm_1a" {
+  # Define the provisioner for the first VM
+  provisioner "local-exec" {
+    command = <<EOF
+      export ANSIBLE_HOST_KEY_CHECKING=False
+      ansible-playbook -vvv -i 'student@${google_compute_instance.vm_1a.network_interface[0].access_config[0].nat_ip},' --private-key ~/.ssh/id_rsa_student playbook.yml | tee ansible-log-vm1a.txt
+    EOF
+  }
+
+  # Dependency to ensure the VM is ready before provisioning
+  depends_on = [
+    google_compute_instance.vm_1a
+  ]
+}
+
+resource "null_resource" "ansible_playbook_vm_2a" {
+  # Define the provisioner for the second VM
+  provisioner "local-exec" {
+    command = <<EOF
+      export ANSIBLE_HOST_KEY_CHECKING=False
+      ansible-playbook -vvv -i 'professor@${google_compute_instance.vm_2a.network_interface[0].access_config[0].nat_ip},' --private-key ~/.ssh/id_rsa_professor playbook.yml | tee ansible-log-vm2a.txt
+    EOF
+  }
+
+  # Dependency to ensure the VM is ready before provisioning
+  depends_on = [
+    google_compute_instance.vm_2a
+  ]
+}
+
+
+
