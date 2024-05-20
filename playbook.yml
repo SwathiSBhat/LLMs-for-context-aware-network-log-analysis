@@ -91,7 +91,6 @@
         chdir: /home/filebeat-8.13.4-linux-x86_64/
       async: 31536000  # Run the command in the background for 1 year, lol
       poll: 0
-
     - name: Debug message to confirm Filebeat start
       debug:
         msg: "Filebeat started in the background."
