@@ -1,1 +1,1 @@
-from elk import ELKLogExtractor
+from log_extractor.elk import ELKLogExtractor
