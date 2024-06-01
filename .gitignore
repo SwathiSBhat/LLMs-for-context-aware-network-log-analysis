@@ -8,6 +8,7 @@ infrastructure/.terraform.tfstate.lock.info.backup
 infrastructure/terraform.tfstate
 infrastructure/terraform.tfstate.backup
 infrastructure/neat-vista-422604-c3-e68cc6362761.json
+infrastructure/neat-vista-422604-c3-9d96dd40509a.json
 infrastructure/ansible-log-vm1a.txt
 infrastructure/ansible-log-vm2a.txt
 .env

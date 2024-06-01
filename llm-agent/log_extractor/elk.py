@@ -7,9 +7,9 @@ class ELKLogExtractor:
     def __init__(self):
         self.cache = []
         self.cache_time = 0
-        self.cloud_id = "9b78dc4b87cb480bb9388eabc314c9f0:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvOjQ0MyQ0MDkyMzRiMmE4YTk0MjRjYTQyZjA3NTYwYzFjMjkyNCRkMmU4ZjVmNTA5MzY0ZWJhYmQ1ZWQ1NTc4MTI2NjVkZA=="
+        self.cloud_id = "afa9c5b77ec04ec19df5fc92fc8f9e98:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvOjQ0MyQ3YjNiNGQyODA2ZDI0ZWNmOGVkY2NmMjMxMjIxZTcxYyQwNGExNTk3MzM4MDM0OWFhYTIzZjRkMTI2ZTY1Mzk0Mw=="
         self.username = "elastic"
-        self.pwd = "kpfk5RF8BrIUrTi3I8Ov7S8B"
+        self.pwd = "REFEL26mONYXzLH0fyFw8GLV"
         self.es = Elasticsearch(
             cloud_id=self.cloud_id,
             basic_auth=(self.username, self.pwd),
@@ -21,7 +21,7 @@ class ELKLogExtractor:
             self.cache_time = time.time()
         return self.cache
         
-    def get_logs(self, time_range=5):
+    def get_logs(self, time_range=20):
         result = self.es.search(index="filebeat-*", body={"query": {"range": {"@timestamp": {"gte": "now-" + str(time_range) + "m"}}}}, scroll="2m", size=100)
         # Initialize scroll_id and hits
         scroll_id = result['_scroll_id']
