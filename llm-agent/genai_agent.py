@@ -1,3 +1,4 @@
+import argparse
 import json
 import logging
 import os
@@ -31,9 +32,9 @@ model = genai.GenerativeModel('gemini-1.5-flash')
 log = ELKLogExtractor()
 
 
-def get_recent_logs():
+def get_recent_logs(time_range):
     logger.info("Getting logs for the last 5 minutes...")
-    _log = log.get_logs(time_range=5)
+    _log = log.get_logs(time_range=time_range)
     logger.info("Logs retrieved.")
     message = ELKLogExtractor.extract_message(json.loads(_log))
     paragraph = ELKLogExtractor.convert_to_paragraph(message)
@@ -61,12 +62,12 @@ def write_to_file(unique_key, content, prefix="log"):
     logger.info(f"{prefix.capitalize()} written to {filename}")
 
 
-def main():
+def main(time_range):
     # Generate a unique key for this session
     unique_key = str(uuid.uuid4())
 
     # Get and summarize logs
-    logs = get_recent_logs()
+    logs = get_recent_logs(time_range)
     summarized_logs = summarize_logs(logs.split('\n'))
 
     # Write the original and summarized logs to files
@@ -81,8 +82,12 @@ def main():
     ]
     response = model.generate_content(str(messages))
     logger.info("Generated response from the model.")
+
     print(response)
+    return unique_key
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--time-range', type=int, help='Time range of logs', required=True)
+    print(main(time_range=parser.parse_args().time_range))
