@@ -1,0 +1,45 @@
+## First rule - delete all
+-D
+
+## Increase the buffers to survive stress events.
+## Make this bigger for busy systems
+-b 8192
+
+## This determine how long to wait in burst of events
+--backlog_wait_time 0
+
+## Set failure mode to syslog
+-f 1
+
+# Monitor editing files with vim
+-a always,exit -F arch=b64 -S open -S openat -S creat -F dir=/home/professor/ -F exe=/usr/bin/vim -k edit_file
+
+# Monitor file creation and modification
+-w /home/professor/ -p wa -k create_modify_files
+
+# Monitor directory listing
+-a always,exit -F arch=b64 -S execve -F exe=/bin/ls -k list_dir
+
+# Monitor file removal
+-a always,exit -F arch=b64 -S unlink -S unlinkat -F dir=/home/professor/ -k delete_file
+
+# Monitor directory creation and removal
+-a always,exit -F arch=b64 -S mkdir -S rmdir -F dir=/home/professor/ -k modify_dir
+
+# Monitor file copy and move
+-a always,exit -F arch=b64 -S rename -S renameat -S link -S linkat -S symlink -S symlinkat -F dir=/home/professor/ -k copy_move_file
+
+# Monitor file read
+-w ~/ -p r -k read_file
+
+# Monitor symlink creation
+-a always,exit -F arch=b64 -S link -S linkat -S symlink -S symlinkat -F dir=/home/professor/ -k symlink_file
+
+# Monitor file search
+-a always,exit -F arch=b64 -S execve -F exe=/usr/bin/find -F dir=/home/professor/ -k search_file
+
+# Monitor archiving and extraction
+-a always,exit -F arch=b64 -S execve -F exe=/bin/tar -F dir=/home/professor/ -k archive_file
+
+# Monitor grep within files
+-a always,exit -F arch=b64 -S execve -F exe=/bin/grep -F dir=/home/professor/ -k grep_file
