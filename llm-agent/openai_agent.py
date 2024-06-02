@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 from openai import AsyncOpenAI
 
 from log_extractor.elk import ELKLogExtractor
-from thought.tree_of_thought import create_tree_of_thought_prompts
+from thought.tree_of_thought import create_tree_of_thought_prompts_suite_1
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -77,7 +77,7 @@ async def main(time_range):
     messages = [
         {"role": "system", "content": "Analyze the following logs:"},
         {"role": "user", "content": '\n'.join(summarized_logs)},
-        {"role": "user", "content": '\n'.join(create_tree_of_thought_prompts())}
+        {"role": "user", "content": '\n'.join(create_tree_of_thought_prompts_suite_1())}
     ]
 
     # Process the response from the OpenAI API
