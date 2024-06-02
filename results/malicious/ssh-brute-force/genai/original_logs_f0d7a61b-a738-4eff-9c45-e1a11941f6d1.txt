@@ -1,0 +1,12 @@
+For vm-2a:
+file /var/log/audit/audit.log at 2024-06-02T21:48:15.534Z, log record: type=SERVICE_START msg=audit(1717364889.412:306): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='unit=gce-workload-cert-refresh comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+file /var/log/audit/audit.log at 2024-06-02T21:48:15.534Z, log record: type=SERVICE_STOP msg=audit(1717364889.412:307): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='unit=gce-workload-cert-refresh comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+file /var/log/audit/audit.log at 2024-06-02T21:48:09.412Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-02T21:48:09.412Z, log record: unknown
+For vm-1a:
+file /var/log/audit/audit.log at 2024-06-02T21:47:58.714Z, log record: type=USER_ERR msg=audit(1717364874.166:479): pid=3321 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:bad_ident grantors=? acct="?" exe="/usr/sbin/sshd" hostname=159.223.198.36 addr=159.223.198.36 terminal=ssh res=failed'
+file /var/log/audit/audit.log at 2024-06-02T21:47:54.166Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-02T21:47:33.728Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-02T21:47:33.728Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-02T21:47:34.713Z, log record: type=SERVICE_START msg=audit(1717364853.728:477): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='unit=gce-workload-cert-refresh comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+file /var/log/audit/audit.log at 2024-06-02T21:47:34.714Z, log record: type=SERVICE_STOP msg=audit(1717364853.728:478): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='unit=gce-workload-cert-refresh comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
