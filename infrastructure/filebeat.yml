@@ -129,7 +129,7 @@ cloud.id: "afa9c5b77ec04ec19df5fc92fc8f9e98:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlv
 
 # The cloud.auth setting overwrites the `output.elasticsearch.username` and
 # `output.elasticsearch.password` settings. The format is `<user>:<pass>`.
-cloud.auth: "elastic:REFEL26mONYXzLH0fyFw8GLV"
+cloud.auth: "elastic:EFEL26mONYXzLH0fyFw8GLV"
 
 # ================================== Outputs ===================================
 
