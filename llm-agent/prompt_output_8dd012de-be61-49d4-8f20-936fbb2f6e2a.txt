@@ -1,0 +1,21 @@
+The main types of messages in these logs are USER_ACCT, USER_CMD, CRED_REFR, USER_START, USER_END, CRED_DISP, and unknown log records. These are not errors or warnings, but informational activity logs. 
+
+Details for each type:
+
+- USER_ACCT: Information about user account actions. Nevertheless, in this log, what we see is the process of user 'professor' being granted permissions for accounting via sudo. The res=success at the end shows that the operation was successful.
+   
+- USER_CMD: This records commands run by the user in the system. In this log, command operation details are provided in hexadecimal format.
+   
+- CRED_REFR: Stands for credential refresh, when a process/operation refreshes its credentials. The log specifies the user (professor), converted to root, running the sudo command successfully.
+   
+- USER_START & USER_END: This signifies the start and end of a user session respectively. It records which user account initiated it, the process id, and using which terminal.
+ 
+- CRED_DISP: Stands for credential dispose, after running a privileged operation the credentials need to be disposed safely, which are generated fresh again on the next task.
+   
+- Unknown log records: These logs are unreadable or cannot be parsed properly due to some unknown/undisclosed factors.
+
+Excempt the unknown logs, the rest do not indicate any errors and thus, have no cause for errors. The unknown records could be due to an error or it might be that we just don't know the type of log record.
+
+There appears to be a recurring pattern of a user (professor) performing operations that require elevated privileges (sudo), commands being run, their credentials being refreshed, a session starting, then ending, and the credentials being disposed.
+
+From the given logs except the unknown ones, it seems that the system is running normally with expected activity. The user 'professor' was able to successfully run some commands using sudo, and session handling (open/close) also operated fine. However, the presence of these unknown logs may be a cause of concern. These records could be, among other things, signs of improperly formatted messages, logs from a new source that is not yet being handled properly, or potentially even a sign of someone trying to hide their tracks. It is recommended to investigate these unknown records further to ascertain their nature and potential impact on the system.

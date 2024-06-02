@@ -1,0 +1,25 @@
+For vm-2a:
+file /var/log/audit/audit.log at 2024-06-02T05:27:48.774Z, log record: type=USER_ACCT msg=audit(1717306060.467:257): pid=2574 uid=1001 auid=1001 ses=6 subj=unconfined msg='op=PAM:accounting grantors=pam_permit acct="professor" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+file /var/log/audit/audit.log at 2024-06-02T05:27:48.774Z, log record: type=USER_CMD msg=audit(1717306060.471:258): pid=2574 uid=1001 auid=1001 ses=6 subj=unconfined msg='cwd="/home/professor" cmd=76696D202F6574632F686F737473 terminal=pts/0 res=success'
+file /var/log/audit/audit.log at 2024-06-02T05:27:48.774Z, log record: type=CRED_REFR msg=audit(1717306060.471:259): pid=2574 uid=0 auid=1001 ses=6 subj=unconfined msg='op=PAM:setcred grantors=pam_permit,pam_cap acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+file /var/log/audit/audit.log at 2024-06-02T05:27:48.774Z, log record: type=USER_START msg=audit(1717306060.471:260): pid=2574 uid=0 auid=1001 ses=6 subj=unconfined msg='op=PAM:session_open grantors=pam_env,pam_env,pam_permit,pam_umask,pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+file /var/log/audit/audit.log at 2024-06-02T05:27:48.774Z, log record: type=USER_END msg=audit(1717306063.031:261): pid=2574 uid=0 auid=1001 ses=6 subj=unconfined msg='op=PAM:session_close grantors=pam_env,pam_env,pam_permit,pam_umask,pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+file /var/log/audit/audit.log at 2024-06-02T05:27:48.774Z, log record: type=CRED_DISP msg=audit(1717306063.031:262): pid=2574 uid=0 auid=1001 ses=6 subj=unconfined msg='op=PAM:setcred grantors=pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+file /var/log/audit/audit.log at 2024-06-02T05:27:48.774Z, log record: type=USER_ACCT msg=audit(1717306063.055:263): pid=2586 uid=1001 auid=1001 ses=6 subj=unconfined msg='op=PAM:accounting grantors=pam_permit acct="professor" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+file /var/log/audit/audit.log at 2024-06-02T05:27:48.774Z, log record: type=USER_CMD msg=audit(1717306063.055:264): pid=2586 uid=1001 auid=1001 ses=6 subj=unconfined msg='cwd="/home/professor" cmd=63686F776E2070726F666573736F72202F686F6D652F70726F666573736F722F6578616D706C652D6D6F7665642E747874 terminal=pts/0 res=success'
+file /var/log/audit/audit.log at 2024-06-02T05:27:48.774Z, log record: type=CRED_REFR msg=audit(1717306063.055:265): pid=2586 uid=0 auid=1001 ses=6 subj=unconfined msg='op=PAM:setcred grantors=pam_permit,pam_cap acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+file /var/log/audit/audit.log at 2024-06-02T05:27:48.774Z, log record: type=USER_START msg=audit(1717306063.059:266): pid=2586 uid=0 auid=1001 ses=6 subj=unconfined msg='op=PAM:session_open grantors=pam_env,pam_env,pam_permit,pam_umask,pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+file /var/log/audit/audit.log at 2024-06-02T05:27:48.774Z, log record: type=USER_END msg=audit(1717306063.059:267): pid=2586 uid=0 auid=1001 ses=6 subj=unconfined msg='op=PAM:session_close grantors=pam_env,pam_env,pam_permit,pam_umask,pam_unix acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+file /var/log/audit/audit.log at 2024-06-02T05:27:48.774Z, log record: type=CRED_DISP msg=audit(1717306063.059:268): pid=2586 uid=0 auid=1001 ses=6 subj=unconfined msg='op=PAM:setcred grantors=pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+file /var/log/audit/audit.log at 2024-06-02T05:27:40.467Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-02T05:27:40.471Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-02T05:27:40.471Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-02T05:27:40.471Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-02T05:27:43.031Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-02T05:27:43.031Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-02T05:27:43.055Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-02T05:27:43.055Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-02T05:27:43.055Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-02T05:27:43.059Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-02T05:27:43.059Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-02T05:27:43.059Z, log record: unknown

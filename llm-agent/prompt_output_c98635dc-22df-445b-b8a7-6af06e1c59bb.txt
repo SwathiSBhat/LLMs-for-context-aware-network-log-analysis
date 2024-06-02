@@ -1,0 +1,17 @@
+1. The main types of log messages are USER_ACCT, USER_CMD, CRED_REFR, USER_START, ANOM_PROMISCUOUS, SYSCALL, PROCTITLE, USER_END, CRED_DISP, USER_ERR, USER_LOGIN, and SERVICE_STOP/START.
+
+2. The key details provided for each type are:
+   - USER_ACCT, USER_CMD, USER_START, USER_END, CRED_REFR, and CRED_DISP: User-related actions such as login, command execution, session and credit information.
+   - ANOM_PROMISCUOUS: Indicative of a network interface going into promiscuous mode.
+   - SYSCALL: Captures operating system calls made by an application.
+   - PROCTITLE: Shows the executable name that related to current operation.
+   - USER_ERR and USER_LOGIN: Show failed login attempts.
+   - SERVICE_STOP/START: Show the stopping and starting of system services.
+
+3. Recurring patterns include multiple failed ssh login attempts (USER_ERR), repeated operation patterns such as USER_START, USER_CMD, followed by USER_END, and actions by the 'root' and 'professor' users.
+
+4. Potential causes of errors or warnings could be:
+   - UNSUCCESSFUL SSH ATTEMPTS: Could be an indicator of attempted unauthorized access.
+   - SERVICE_START/STOP: Could indicate routine operation or issues if these events are unexpected.
+    
+5. There are several log entries that suggest failed SSH logins and suspicious behavior, which could suggest that the system may be under attack. The user "professor" and "root" users show normal operations. However, due to repeated failed SSH login attempts, the health and status of the system could be potentially compromised. Security should be reinforced to prevent any possible breaches. The effective functioning of services is indicated by the SERVICE START/STOP records in the logs, so the system appears to be running as expected in that regard.

@@ -1,0 +1,15 @@
+The following types of messages are present in these logs: USER_LOGIN, USER_ERR, SERVICE_START, SERVICE_STOP, USER_ACCT, USER_CMD, CRED_REFR, USER_START, USER_END, CRED_DISP, ANOM_PROMISCUOUS, SYSCALL, PROCTITLE and some unconditional records.
+
+1. USER_LOGIN and USER_ERR: These messages refer to attempts to login by a user. The details provided include the operation (op), account (acct), executing program (exe), hostname, source address (addr), terminal used and the result (res = failed or success).
+
+2. SERVICE_START and SERVICE_STOP: These refer to start-ups and shutdowns of system services. They provide details about the process ID (pid), user ID (uid), audit user ID (auid), session ID (ses), and the result.
+
+3. USER_ACCT, USER_CMD, CRED_REFR, USER_START, USER_END and CRED_DISP: These messages are related to user activities and credentials on the system, providing information about the user ID (uid), audit user ID (auid), session ID (ses), the operation, account, command executed (cmd), and the result of the operation.
+
+4. ANOM_PROMISCUOUS, SYSCALL, and PROCTITLE: These refer to abnormal behavior such as enabling promiscuous mode on a network interface (ANOM_PROMISCUOUS), system call operations (SYSCALL), and tracking the proctitle set by a process (PROCTITLE). 
+
+There appear to be recurring patterns of failed login attempts (with USER_LOGIN and USER_ERR records) from the same IP address (159.223.158.194).
+
+Failed login attempts often indicate that someone is trying to gain unauthorized access to the system. It could either be a user forgetting their credentials or a potential malicious actor attempting a brute-force attack.
+
+Based on these logs, the system appears generally healthy with normal user activities and service operations recorded. However, the numerous failed login attempts are a security concern that should be addressed.
