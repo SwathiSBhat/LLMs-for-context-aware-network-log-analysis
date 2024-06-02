@@ -26,7 +26,7 @@ class ELKLogExtractor:
 
     def get_logs(self, time_range=1):
         result = self.es.search(index="filebeat-*",
-                                body={"query": {"range": {"@timestamp": {"gte": "now-" + str(time_range) + "m"}}}},
+                                body={"query": {"range": {"@timestamp": {"gte": "now-" + str(time_range) + "s"}}}},
                                 scroll="2m", size=100)
         # Initialize scroll_id and hits
         scroll_id = result['_scroll_id']
