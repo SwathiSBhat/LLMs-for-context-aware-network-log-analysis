@@ -1,0 +1,5 @@
+The auditD logs provided do not provide any instances of file creation or deletion. There are no highlighted changes to file permissions or ownership in the provided logs. Additionally, there's no data anywhere in the logs to suggest activities related to directory creation and deletion. 
+
+Most of the logs are related to user activities such as login attempts (failed and successful), especially from the user called "professor". Activities such as "PAM:accounting", "PAM:setcred", "PAM:session_open", and "PAM:session_close" were performed by this user. Some unknown users also tried to login and failed.
+
+In summary, these logs mostly contain user permission activities and their login attempts, but no file or directory related operations were recorded.

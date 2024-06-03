@@ -33,7 +33,6 @@ log = ELKLogExtractor()
 
 
 def get_recent_logs(time_range):
-    logger.info("Getting logs for the last 5 minutes...")
     _log = log.get_logs(time_range=time_range)
     logger.info("Logs retrieved.")
     message = ELKLogExtractor.extract_message(json.loads(_log))
