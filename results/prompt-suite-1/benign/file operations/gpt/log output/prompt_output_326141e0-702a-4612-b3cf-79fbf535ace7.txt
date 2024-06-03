@@ -1,0 +1,6 @@
+The main types of messages in this log data are: USER_LOGIN, USER_ERR, USER_ACCT, CRED_ACQ, LOGIN, SYSCALL, PROCTITLE, USER_START, USER_END, CRED_DISP, SERVICE_START, SERVICE_STOP, and some unknown records.
+
+Each message type provides different key details:
+- USER_LOGIN: Contains information about user login attempts, the account, the executable used for login attempts, hostname, the IP address, and the terminal. The result of the login attempt (success or failure) is also recorded.
+- USER_ERR: Includes details about user errors, specifically invalid user details. Information on the executable used for these login attempts, the IP address, and the outcome are included.
+- USER_ACCT, CRED_ACQ, LOGIN: These messages are related to successful login processes and credential acquisition.

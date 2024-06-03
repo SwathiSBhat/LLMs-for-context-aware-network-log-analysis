@@ -1,0 +1,5 @@
+The provided logs do not show any instances of file creation or deletion. There are also no changes to file permissions or ownership. Furthermore, there are no activities related to directory creation or deletion. 
+
+The logs provided mostly present authentication logs related to a user with the username 'professor' logging in successfully via SSH. There are three failed login attempts, originating from different IP-addresses. 
+
+It's important to note that auditing logs can contain a lot of detailed information about the actions on a system, including file operations, permission changes, and directory operations. However, in the given logs, such activities are not present.

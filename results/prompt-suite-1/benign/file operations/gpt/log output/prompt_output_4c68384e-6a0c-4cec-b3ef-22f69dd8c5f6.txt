@@ -1,0 +1,24 @@
+The main types of messages in these logs are:
+
+- USER_LOGIN
+- USER_ERR
+- USER_ACCT
+- CRED_ACQ
+- LOGIN
+- SYSCALL
+- PROCTITLE
+- USER_START
+- USER_END
+- CRED_DISP
+
+For each type of message, key details include the type of the activity (op), user account (acct), process ID (pid), user ID (uid), operation details (msg), hostname and IP address (addr), terminal used, and the result of the operation (res).
+
+There are some recurring patterns or repeated messages. 
+
+The most common is the recurrence of "USER_LOGIN" and "USER_ERR" messages with login attempts indicating failure ("res=failed"). These often appear together with the same time stamp, process ID, and originating IP address. 
+
+The errors are mainly related to failed login attempts, indicated by the "USER_LOGIN" types with "res=failed". This could be due to invalid or incorrect user credentials. Moreover, the "USER_ERR" type with "op=PAM:bad_ident" signals that the system could not identify the user trying to login, often because the system does not recognize the account.
+
+The logs suggest that the system was enduring a constant series of failed login attempts, possible signs of a brute force attack. Additionally, it seems that there are successful logins from the account "professor". 
+
+Despite the continual unsuccessful login attempts, there is no indication of any breach or compromise in these logs.

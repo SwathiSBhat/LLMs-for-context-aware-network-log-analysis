@@ -1,0 +1,109 @@
+For vm-2a:
+file /var/log/audit/audit.log at 2024-06-03T00:37:02.670Z, log record: type=USER_LOGIN msg=audit(1717375015.735:1737): pid=8601 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=login acct=28756E6B6E6F776E207573657229 exe="/usr/sbin/sshd" hostname=? addr=46.25.123.167 terminal=sshd res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:37:02.670Z, log record: type=USER_LOGIN msg=audit(1717375015.735:1738): pid=8601 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=login acct=28696E76616C6964207573657229 exe="/usr/sbin/sshd" hostname=? addr=46.25.123.167 terminal=sshd res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:37:02.670Z, log record: type=USER_ERR msg=audit(1717375015.815:1739): pid=8599 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:bad_ident grantors=? acct="?" exe="/usr/sbin/sshd" hostname=43.134.85.233 addr=43.134.85.233 terminal=ssh res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:37:02.670Z, log record: type=USER_ERR msg=audit(1717375015.891:1740): pid=8601 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:bad_ident grantors=? acct="?" exe="/usr/sbin/sshd" hostname=46.25.123.167 addr=46.25.123.167 terminal=ssh res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:55.735Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:55.735Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:55.815Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:55.891Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:37:09.456Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:37:09.456Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:37:09.596Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:40.667Z, log record: type=USER_LOGIN msg=audit(1717374999.597:1727): pid=8591 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=login acct=28756E6B6E6F776E207573657229 exe="/usr/sbin/sshd" hostname=? addr=43.128.131.205 terminal=sshd res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:40.668Z, log record: type=USER_LOGIN msg=audit(1717374999.597:1728): pid=8591 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=login acct=28696E76616C6964207573657229 exe="/usr/sbin/sshd" hostname=? addr=43.128.131.205 terminal=sshd res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:40.668Z, log record: type=USER_ERR msg=audit(1717374999.737:1729): pid=8591 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:bad_ident grantors=? acct="?" exe="/usr/sbin/sshd" hostname=43.128.131.205 addr=43.128.131.205 terminal=ssh res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:40.668Z, log record: type=USER_LOGIN msg=audit(1717375000.334:1730): pid=8593 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=login acct=28756E6B6E6F776E207573657229 exe="/usr/sbin/sshd" hostname=? addr=211.253.10.96 terminal=sshd res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:40.668Z, log record: type=USER_LOGIN msg=audit(1717375000.334:1731): pid=8593 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=login acct=28696E76616C6964207573657229 exe="/usr/sbin/sshd" hostname=? addr=211.253.10.96 terminal=sshd res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:40.668Z, log record: type=USER_ERR msg=audit(1717375000.466:1732): pid=8593 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:bad_ident grantors=? acct="?" exe="/usr/sbin/sshd" hostname=211.253.10.96 addr=211.253.10.96 terminal=ssh res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:37.957Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:37.965Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:37.977Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:37.977Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:38.113Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:39.597Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:39.597Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:39.737Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:40.334Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:40.334Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:40.466Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:46.668Z, log record: type=USER_ERR msg=audit(1717375004.998:1733): pid=8595 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:bad_ident grantors=? acct="?" exe="/usr/sbin/sshd" hostname=129.226.203.153 addr=129.226.203.153 terminal=ssh res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:44.998Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:47.046Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:47.046Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:47.178Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:48.669Z, log record: type=USER_LOGIN msg=audit(1717375007.046:1734): pid=8597 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=login acct=28756E6B6E6F776E207573657229 exe="/usr/sbin/sshd" hostname=? addr=173.12.223.153 terminal=sshd res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:48.669Z, log record: type=USER_LOGIN msg=audit(1717375007.046:1735): pid=8597 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=login acct=28696E76616C6964207573657229 exe="/usr/sbin/sshd" hostname=? addr=173.12.223.153 terminal=sshd res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:48.669Z, log record: type=USER_ERR msg=audit(1717375007.178:1736): pid=8597 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:bad_ident grantors=? acct="?" exe="/usr/sbin/sshd" hostname=173.12.223.153 addr=173.12.223.153 terminal=ssh res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:30.664Z, log record: type=USER_LOGIN msg=audit(1717374988.537:1708): pid=8502 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=login acct=28756E6B6E6F776E207573657229 exe="/usr/sbin/sshd" hostname=? addr=43.153.180.201 terminal=sshd res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:30.664Z, log record: type=USER_LOGIN msg=audit(1717374988.541:1709): pid=8502 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=login acct=28696E76616C6964207573657229 exe="/usr/sbin/sshd" hostname=? addr=43.153.180.201 terminal=sshd res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:30.664Z, log record: type=USER_ERR msg=audit(1717374988.645:1710): pid=8502 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:bad_ident grantors=? acct="?" exe="/usr/sbin/sshd" hostname=43.153.180.201 addr=43.153.180.201 terminal=ssh res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:28.537Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:28.541Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:28.645Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:33.093Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:33.097Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:33.097Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:33.097Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:33.097Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:33.573Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:33.577Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:33.589Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:33.589Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:33.677Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:33.677Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:33.677Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:33.677Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:33.677Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:33.729Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:33.729Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:33.957Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:36.665Z, log record: type=USER_ACCT msg=audit(1717374993.093:1711): pid=8504 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:accounting grantors=pam_permit acct="professor" exe="/usr/sbin/sshd" hostname=68.108.247.157 addr=68.108.247.157 terminal=ssh res=success'
+file /var/log/audit/audit.log at 2024-06-03T00:36:36.665Z, log record: type=CRED_ACQ msg=audit(1717374993.097:1712): pid=8504 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:setcred grantors=pam_permit,pam_cap acct="professor" exe="/usr/sbin/sshd" hostname=68.108.247.157 addr=68.108.247.157 terminal=ssh res=success'
+file /var/log/audit/audit.log at 2024-06-03T00:36:36.665Z, log record: type=LOGIN msg=audit(1717374993.097:1713): pid=8504 uid=0 subj=unconfined old-auid=4294967295 auid=1001 tty=(none) old-ses=4294967295 ses=61 res=1
+file /var/log/audit/audit.log at 2024-06-03T00:36:36.665Z, log record: type=SYSCALL msg=audit(1717374993.097:1713): arch=c000003e syscall=1 success=yes exit=4 a0=3 a1=7ffe38a71ca0 a2=4 a3=7f71a1232371 items=0 ppid=800 pid=8504 auid=1001 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=61 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined key=(null)
+file /var/log/audit/audit.log at 2024-06-03T00:36:36.665Z, log record: type=PROCTITLE msg=audit(1717374993.097:1713): proctitle=737368643A2070726F666573736F72205B707269765D
+file /var/log/audit/audit.log at 2024-06-03T00:36:36.665Z, log record: type=USER_START msg=audit(1717374993.573:1714): pid=8504 uid=0 auid=1001 ses=61 subj=unconfined msg='op=PAM:session_open grantors=pam_selinux,pam_loginuid,pam_keyinit,pam_permit,pam_umask,pam_unix,pam_systemd,pam_mail,pam_limits,pam_env,pam_env,pam_selinux acct="professor" exe="/usr/sbin/sshd" hostname=68.108.247.157 addr=68.108.247.157 terminal=ssh res=success'
+file /var/log/audit/audit.log at 2024-06-03T00:36:36.665Z, log record: type=CRED_ACQ msg=audit(1717374993.577:1715): pid=8579 uid=0 auid=1001 ses=61 subj=unconfined msg='op=PAM:setcred grantors=pam_permit,pam_cap acct="professor" exe="/usr/sbin/sshd" hostname=68.108.247.157 addr=68.108.247.157 terminal=ssh res=success'
+file /var/log/audit/audit.log at 2024-06-03T00:36:36.665Z, log record: type=USER_LOGIN msg=audit(1717374993.589:1716): pid=8508 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=login acct=28756E6B6E6F776E207573657229 exe="/usr/sbin/sshd" hostname=? addr=107.0.200.227 terminal=sshd res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:36.665Z, log record: type=USER_LOGIN msg=audit(1717374993.589:1717): pid=8508 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=login acct=28696E76616C6964207573657229 exe="/usr/sbin/sshd" hostname=? addr=107.0.200.227 terminal=sshd res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:36.665Z, log record: type=SYSCALL msg=audit(1717374993.677:1718): arch=c000003e syscall=85 success=yes exit=3 a0=7ffe809b0dc2 a1=1b6 a2=7ffe809b04f0 a3=8 items=2 ppid=8580 pid=8581 auid=1001 uid=1001 gid=1002 euid=1001 suid=1001 fsuid=1001 egid=1002 sgid=1002 fsgid=1002 tty=(none) ses=61 comm="tar" exe="/usr/bin/tar" subj=unconfined key="create_modify_files"
+file /var/log/audit/audit.log at 2024-06-03T00:36:36.665Z, log record: type=CWD msg=audit(1717374993.677:1718): cwd="/home/professor"
+file /var/log/audit/audit.log at 2024-06-03T00:36:36.665Z, log record: type=PATH msg=audit(1717374993.677:1718): item=0 name="/home/professor" inode=258065 dev=08:01 mode=040755 ouid=1001 ogid=1002 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+file /var/log/audit/audit.log at 2024-06-03T00:36:36.665Z, log record: type=PATH msg=audit(1717374993.677:1718): item=1 name="archive.tar.gz" inode=260411 dev=08:01 mode=0100664 ouid=1001 ogid=1002 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+file /var/log/audit/audit.log at 2024-06-03T00:36:36.665Z, log record: type=PROCTITLE msg=audit(1717374993.677:1718): proctitle=746172002D637A766600617263686976652E7461722E677A006578616D706C652D6D6F7665642E747874
+file /var/log/audit/audit.log at 2024-06-03T00:36:36.665Z, log record: type=USER_END msg=audit(1717374993.729:1719): pid=8504 uid=0 auid=1001 ses=61 subj=unconfined msg='op=PAM:session_close grantors=pam_selinux,pam_loginuid,pam_keyinit,pam_permit,pam_umask,pam_unix,pam_systemd,pam_mail,pam_limits,pam_env,pam_env,pam_selinux acct="professor" exe="/usr/sbin/sshd" hostname=68.108.247.157 addr=68.108.247.157 terminal=ssh res=success'
+file /var/log/audit/audit.log at 2024-06-03T00:36:36.665Z, log record: type=CRED_DISP msg=audit(1717374993.729:1720): pid=8504 uid=0 auid=1001 ses=61 subj=unconfined msg='op=PAM:setcred grantors=pam_permit acct="professor" exe="/usr/sbin/sshd" hostname=68.108.247.157 addr=68.108.247.157 terminal=ssh res=success'
+file /var/log/audit/audit.log at 2024-06-03T00:36:36.665Z, log record: type=USER_ERR msg=audit(1717374993.957:1721): pid=8508 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:bad_ident grantors=? acct="?" exe="/usr/sbin/sshd" hostname=107.0.200.227 addr=107.0.200.227 terminal=ssh res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:38.666Z, log record: type=USER_LOGIN msg=audit(1717374997.957:1722): pid=8584 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=login acct=28756E6B6E6F776E207573657229 exe="/usr/sbin/sshd" hostname=? addr=43.133.68.211 terminal=sshd res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:38.666Z, log record: type=USER_LOGIN msg=audit(1717374997.965:1723): pid=8584 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=login acct=28696E76616C6964207573657229 exe="/usr/sbin/sshd" hostname=? addr=43.133.68.211 terminal=sshd res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:38.666Z, log record: type=SERVICE_START msg=audit(1717374997.977:1724): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='unit=gce-workload-cert-refresh comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+file /var/log/audit/audit.log at 2024-06-03T00:36:38.666Z, log record: type=SERVICE_STOP msg=audit(1717374997.977:1725): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='unit=gce-workload-cert-refresh comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+file /var/log/audit/audit.log at 2024-06-03T00:36:38.666Z, log record: type=USER_ERR msg=audit(1717374998.113:1726): pid=8584 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:bad_ident grantors=? acct="?" exe="/usr/sbin/sshd" hostname=43.133.68.211 addr=43.133.68.211 terminal=ssh res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:16.148Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:16.148Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:16.256Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:16.288Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:17.512Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:24.664Z, log record: type=USER_LOGIN msg=audit(1717374976.148:1697): pid=8494 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=login acct=28756E6B6E6F776E207573657229 exe="/usr/sbin/sshd" hostname=? addr=43.154.151.93 terminal=sshd res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:24.664Z, log record: type=USER_LOGIN msg=audit(1717374976.148:1698): pid=8494 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=login acct=28696E76616C6964207573657229 exe="/usr/sbin/sshd" hostname=? addr=43.154.151.93 terminal=sshd res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:24.664Z, log record: type=USER_ERR msg=audit(1717374976.256:1699): pid=8492 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:bad_ident grantors=? acct="?" exe="/usr/sbin/sshd" hostname=197.227.8.186 addr=197.227.8.186 terminal=ssh res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:24.664Z, log record: type=USER_ERR msg=audit(1717374976.288:1700): pid=8494 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:bad_ident grantors=? acct="?" exe="/usr/sbin/sshd" hostname=43.154.151.93 addr=43.154.151.93 terminal=ssh res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:24.664Z, log record: type=USER_ERR msg=audit(1717374977.512:1701): pid=8496 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:bad_ident grantors=? acct="?" exe="/usr/sbin/sshd" hostname=43.133.186.22 addr=43.133.186.22 terminal=ssh res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:24.664Z, log record: type=USER_LOGIN msg=audit(1717374983.608:1702): pid=8498 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=login acct=28756E6B6E6F776E207573657229 exe="/usr/sbin/sshd" hostname=? addr=95.181.43.122 terminal=sshd res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:24.664Z, log record: type=USER_LOGIN msg=audit(1717374983.612:1703): pid=8498 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=login acct=28696E76616C6964207573657229 exe="/usr/sbin/sshd" hostname=? addr=95.181.43.122 terminal=sshd res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:24.664Z, log record: type=USER_LOGIN msg=audit(1717374983.768:1704): pid=8500 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=login acct=28756E6B6E6F776E207573657229 exe="/usr/sbin/sshd" hostname=? addr=129.226.209.202 terminal=sshd res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:24.664Z, log record: type=USER_LOGIN msg=audit(1717374983.772:1705): pid=8500 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=login acct=28696E76616C6964207573657229 exe="/usr/sbin/sshd" hostname=? addr=129.226.209.202 terminal=sshd res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:24.664Z, log record: type=USER_ERR msg=audit(1717374983.832:1706): pid=8498 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:bad_ident grantors=? acct="?" exe="/usr/sbin/sshd" hostname=95.181.43.122 addr=95.181.43.122 terminal=ssh res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:24.664Z, log record: type=USER_ERR msg=audit(1717374983.932:1707): pid=8500 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:bad_ident grantors=? acct="?" exe="/usr/sbin/sshd" hostname=129.226.209.202 addr=129.226.209.202 terminal=ssh res=failed'
+file /var/log/audit/audit.log at 2024-06-03T00:36:23.608Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:23.612Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:23.768Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:23.772Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:23.832Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:23.932Z, log record: unknown
+For vm-1a:
+file /var/log/audit/audit.log at 2024-06-03T00:36:53.018Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:36:53.018Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T00:37:01.876Z, log record: type=SERVICE_START msg=audit(1717375013.018:457): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='unit=gce-workload-cert-refresh comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+file /var/log/audit/audit.log at 2024-06-03T00:37:01.876Z, log record: type=SERVICE_STOP msg=audit(1717375013.018:458): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='unit=gce-workload-cert-refresh comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'

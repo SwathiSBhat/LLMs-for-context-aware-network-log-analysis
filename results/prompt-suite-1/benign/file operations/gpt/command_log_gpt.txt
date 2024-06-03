@@ -1,0 +1,213 @@
+Command: echo "hello world" > ~/example.txt
+Return Value: Based on the logs, there are several main types of messages:
+
+1. "Unknown" - Many records contain "unknown" as their message, which indicates that the log contents are not recognizable or could not be deciphered by the software reading the logs.
+
+2. "USER_ACCT" - These logs provide details about user account operations, typically related to authorization or account behavior. They contain details such as the PID (process ID), UID (user ID), AUID (auditing user ID), SES (session ID), as well as the operational outcome (res=success).
+
+3. "CRED_ACQ" and "CRED_DISP" - These log entries indicate when the system acquires or disposes of a user's credentials. Important details include the user and process ID, session and audit user ID, as well as the result of the operation.
+
+4. "LOGIN" - The logs include login records, indicating the process by which a user has logged in, and outlining whether it was successful.
+
+5. "SYSCALL" and "PROCTITLE" - These entries relate to system-level processes. SYSCALL refers to system calls made by certain processes and PROCTITLE provides the name (usually encoded) of the process that's being invoked.
+
+6. "USER_START" and "USER_END" - Log entries of this type refer to the start or end of a user session, recording details about the user ID, session ID, and the result of the operation.
+
+7. "USER_LOGIN" and "USER_ERR" - These entries record attempts to log into the system and possible errors during the login process. They provide details on the user's IP address, what user account was used, and whether the login was successful or not.
+
+8. "SERVICE_START" and "SERVICE_STOP" - These are about service life-cycle and indicate when particular services are started or stopped.
+
+Recurring patterns or messages include unknown log records and multiple instances of failed logins from different IP addresses by unknown users, which could indicate an attempt to gain unauthorized access to the system. Other recurring patterns are successful cron job execution by the root user.
+
+The primary cause of errors or warnings appears to stem from an inability to recognize certain log entries (“unknown”), and attempts to log in using invalid or non-existing user accounts.
+
+In summary, while some parts of the system, such as the cron job execution for the root user, appear to operate successfully, there is continuous failed login activity that could be a security concern. Given the quantity of unrecognized log entries, the system may also be experiencing issues that are not being adequately logged or monitored.
+1274cba6-0ce5-4668-902d-f2f93c994f90
+----------------------
+Command: touch file.txt
+Return Value: The logs primarily contain audit records from Linux's audit daemon (auditd), which are neither errors, warnings, or info messages. Instead, they record the activities and events on a Linux system for security auditing purposes. 
+
+1. USER_ACCT: This type of message appears when a user account is successfully accessed. Key details provided include the userID, and details of the user's account. 
+
+2. CRED_ACQ: This message is logged when a user acquires credentials. It includes details such as process id, user id, user's audit id, and the name of the user who acquired credentials.
+
+3. LOGIN: This log message is recorded when the login event occurs. Information provided includes pid (process id), uid (user id), auid (audit uid), old-auid (old audit uid), and ses (session id).
+
+4. SYSCALL: It logs system call made by a process. It provides an extensive amount of information like pid, uid, gid, syscall id, exit value, syscall arguments and executable that made the syscall.
+
+5. PROCTITLE: This records the proctitle set by prctl.
+
+6. USER_START: This logs the start of a new user session with details about the user and session.
+
+7. USER_END: This logs the end of a user session.
+
+8. USER_LOGIN: This log message is recorded when a login attempt is made.
+
+9. USER_ERR: This records when a user error has occurred. 
+
+Recurring patterns in the logs include lots of USER_ACCT, CRED_ACQ, LOGIN, and SYSCALL log messages. These messages are expected in normal functioning of the system as users log in and execute various commands.
+
+Some of the log records labeled 'unknown' may indicate failed or unsuccessful activities.
+
+There are no specific error messages in the provided logs that suggest an error or a warning state. However, the logs indicate several failed login attempts which could potentially suggest an intrusion attempt or incorrect user credentials being used.
+
+Based on these logs, the system appears to be functioning normally, although some failed login attempts should be investigated.
+98d50970-7d06-4ee8-92be-8c4ddf4d20a0
+----------------------
+Command: ls
+Return Value: 1. Main Types of Messages: The primary type of messages in these logs are info logs. Some logs suggest success while others suggest failures. These include USER_LOGIN attempts (both successful and failed), USER_ERR, USER_ACCT, CRED_ACQ, LOGIN, SYSCALL, PROCTITLE, USER_START, EXECVE, CWD, PATH, USER_END, and CRED_DISP logs.
+
+2. Key Details Provided:
+
+    - USER_LOGIN: Information about login attempts including pid, uid, session id, and operation status.
+ 
+    - USER_ERR: Details about failed actions, with potential reasons.
+  
+    - USER_ACCT, CRED_ACQ, LOGIN messages: Information about user authentication activities like setting credentials, session updates, and accounting details.
+
+    - SYSCALL, EXECVE, CWD, PATH messages: Details of system calls, executions, current working directories, and path usages, respectively. 
+
+    - USER_START, and USER_END messages: Details about session start and end, and the respective activities within those sessions.
+
+    - Additional information such as timestamps, message audits, IP addresses of requests, and other system specific details are also provided.
+
+
+3. Recurring Patterns or Repeated Messages: There are repeated unsuccessful login attempts from the same IP address (43.154.151.93). Following that, there are successful login, execution, and logout activities from another IP address (68.108.247.157).
+
+4. Potential Causes of Errors or Warnings: The failed login attempts may be due to incorrect login credentials being provided, which could potentially indicate a brute force attack attempt.
+
+5. Overall Health and Status: Apart from the failed login attempts from a specific IP address, the overall health and status of the system seem to be normal. There is successful account activity involved, implying that standard operations are going as expected. However, security concerns caused by the multiple failed login attempts should be addressed.
+11421c87-0b5c-4446-a8bf-2064d6fcf3c1
+----------------------
+Command: rm file.txt
+Return Value: The logs primarily contain User Login failure messages, User Error messages, and User Account messages. 
+
+- User Login failure messages: These logs record failed attempt to log into the system. The logs provide details about the operation performed (login), the user account involved which is encoded, the executable responsible ("/usr/sbin/sshd"), involved IP addresses, and the result of the operation (failed). 
+
+- User Error messages: These messages seem to be related to failed identification with the Pluggable Authentication Modules (PAM). They provide information similar to User Login logs but include the description "PAM:bad_ident". 
+
+- User Account messages: These logs pertain to successful operations involving the PAM, such as setting credentials, opening a user session, and closing a session for the "professor" user. 
+
+Recurring patterns observed are that there were failed login attempts from different IP addresses. The account usernames are encoded, and it is difficult to determine the specific accounts being targeted. In addition, there were successful logins and operations executed by the user "professor." 
+
+The potential causes for the errors could be an unauthorized user(s) trying to gain access to the system using invalid credentials. This could indicate attempted security breaches. 
+
+Based on these logs, the system appears to be under the risk of a security breach given the recurrence of failed login attempts. However, authentication controls seem to be appropriately configured since invalid login attempts are being declined. The system is also effectively recording activities, both successful and failed, which is a good sign. However, repeated failed login attempts warrant an investigation into a potential cyber attack.
+
+da608bf4-5680-42bd-9c6d-a3de061ce810
+----------------------
+Command: chmod 755 ~/example.txt
+Return Value: 
+----------------------
+Command: mkdir ~/newdir
+Return Value: The main types of messages in these logs include USER_LOGIN, USER_ERR, USER_ACCT, CRED_ACQ, LOGIN, SYSCALL, PROCTITLE, USER_START, USER_END, CRED_DISP, and USER_ACCT.
+
+Each type of message provides key details: 
+1. USER_LOGIN: Provides information about failed login attempts including the attempted account name, the process id involved, uid, auid, session id, program executed, and source address.
+2. USER_ERR: Details about errors involving bad user identification along with process id, uid, auid, source address, and failed result.
+3. USER_ACCT, CRED_ACQ, LOGIN, SYSCALL, PROCTITLE, USER_START, USER_END, CRED_DISP: These are messages indicating successful user activities - logging in, acquiring credentials, opening a session, making a system call, changing the process title, ending a session. They provide the involved account name, process id, uid, auid, source address, the specific operation involved, and status of operation.
+ 
+Recurring patterns or repeated messages include:
+1. Multiple failed login attempts from a variety of IP addresses.
+2. Repeated USER_ERR messages indicating a bad identification error for unknown user.
+
+Potential causes of the errors or warnings could include:
+1. A systematic or coordinated attempt to gain unauthorized access to the system (potentially a brute force attack).
+2. Incorrect user accounts being used for login attempts.
+
+Based on these logs, the overall health and status of the system seem to be under threat. There are multiple failed login attempts in a short period of time from various IP addresses and incorrect user accounts, indicating a potential security concern. However, it seems the existing security measures are functioning properly since all unauthorized attempts have failed. It could be prudent to investigate the failed login attempts further, possibly tracking the source of these attempts to identify any larger security threats.
+b320d1b1-bb98-4ff0-89e7-8a15f9e4d01d
+----------------------
+Command: rmdir ~/newdir
+Return Value: 1. Main types of messages in these logs are User Login attempts, User Errors, and Service Start & Stop operations.
+
+2. For each type of message:
+
+- User Login attempts (type=USER_LOGIN): These logs display information about the user login attempts with details like Process ID (pid), User ID (uid), Audit User ID (auid), Session ID (ses), Operation (op=login), Account (acct), Executable file path (exe), IP Address (addr), Terminal (terminal), and Result of the login attempt (res).
+
+- User Errors (type=USER_ERR): These logs display information about the failed user operations. The key details include Process ID (pid), User ID (uid), Audit User ID (auid), Session ID (ses), Operation (op=PAM:bad_ident), Account (acct), Executable file path (exe), IP Address (addr), Terminal (terminal), and Result of the operation (res).
+
+- Service Start & Stop (type=SERVICE_START, SERVICE_STOP): These logs provide information about the start and stop of services including Process ID (pid), User ID (uid), Audit User ID (auid), Session ID (ses), unit name, service command (
+c0bbebf9-4716-4c3a-ab51-482383afb4e9
+----------------------
+Command: cp ~/example.txt ~/ex2.txt
+Return Value: The main types of messages appear in these logs include USER_LOGIN, USER_ERR, USER_ACCT, CRED_ACQ, LOGIN, SYSCALL, PROCTITLE, USER_START, USER_END, and CRED_DISP. 
+
+Key details for each message type typically include the process id (pid), user id (uid), audit id (auid), audit session id (ses), subject (subj), operation (op), account (acct), process name (exe), hostname, IP address (addr), and result (res). Additional details specific to the type of message are also provided (e.g., source/destination information in USER_LOGIN messages, syscall number and args/success details in SYSCALL messages etc.). For instance, USER_LOGIN messages show attempts to login, while USER_ERR messages report errors related to user operations.
+
+The recurring pattern seems to be a continual series of failed login attempts. Specifically, many log records have entries such as 'op=login' followed by 'res=failed'. These log entries are typically associated with different IP addresses, strongly suggesting repeated login attempts, potentially indicating a brute force attack. 
+
+The USER_ERR messages ('op=PAM:bad_ident') can be caused by a variety of issues, often related to unsuccessful authentication attempts. In the context of these logs, the errors appear to originate from failed login attempts to the sshd service, potentially again indicative of malicious activity.
+
+Based on these logs, the overall health of the system appears to be compromised. There are numerous failed login attempts, possibly indicating a brute force attack, along with multiple user-related errors. This suggests issues with incorrect credentials being provided, nonexistent accounts being referenced, or intrusion attempts. The system may be experiencing repeated unauthorized access attempts.
+f966ea9c-3f9e-4ae3-847b-f104cb4e8cc8
+----------------------
+Command: mv ~/example.txt ~/example-moved.txt
+Return Value: 
+----------------------
+Command: cat ~/example-moved.txt
+Return Value: The logs contain three main types of messages which are USER_LOGIN, USER_ERR and USER_ACCT which are essentially types of audit events that Linux logs. 
+
+1. USER_LOGIN: This type of log message shows a user login attempt. The logs show the operation (`op`), the account (`acct`), the program execution (`exe`), the addresses (`hostname` and `addr`) involved, the terminal used (`terminal`), and the result (`res`) of the operation. In this case, all the `res` values flagged as 'failed'.
+
+2. USER_ERR: These messages are generated when there is an error during the user validation process. In these logs, the operation is tied to PAM (Pluggable Authentication Modules), a system security tool. As before, the program execution (`exe`) and addresses (`hostname` and `addr`) are also logged. The `res` of these operations are also all flagged as 'failed'.
+
+3. USER_ACCT: This message type is connected with user account activities. As with above, the log details the operation (`op`), grantors, account (`acct`) involved in the operation, the program execution (`exe`), host and network address (`hostname` and `addr`), and terminal (`terminal`). In these records, the operations are successful.
+
+A recurring pattern in these logs is the failed login attempts from different IP addresses. It seems there are repeated unsuccessful attempts to access the system using SSH, logging in with different account names. 
+
+Potential causes for the errors could be:
+- Incorrect login details: This could be a user error or a potential brute force attack to try and gain access to system accounts. 
+- Network issues: In some cases, unsuccessful login attempts may be due to network connectivity issues.
+- Invalid user data (`PAM:bad_ident` error): This could mean that the system has received a login request from an account that does not exist on the system. 
+
+Based on these logs, the overall health of the system seems compromised due to persistent failed login attempts. It seems like there could be an unauthorized access attempt going on since there are multiple failed login attempts from various IP addresses. Security measures should be reviewed and potentially enhanced to mitigate the risk.
+e055f0dc-3ca4-4cdf-ac0e-3d584d1b5818
+----------------------
+Command: ln -s ~/example-moved.txt ~/example-symlink.txt
+Return Value: 
+----------------------
+Command: sudo chown professor ~/example-moved.txt
+Return Value: 
+----------------------
+Command: find . -wholename ./ex2.txt
+Return Value: The main types of messages in these logs are:
+
+- USER_LOGIN
+- USER_ERR
+- USER_ACCT
+- CRED_ACQ
+- LOGIN
+- SYSCALL
+- PROCTITLE
+- USER_START
+- USER_END
+- CRED_DISP
+
+For each type of message, key details include the type of the activity (op), user account (acct), process ID (pid), user ID (uid), operation details (msg), hostname and IP address (addr), terminal used, and the result of the operation (res).
+
+There are some recurring patterns or repeated messages. 
+
+The most common is the recurrence of "USER_LOGIN" and "USER_ERR" messages with login attempts indicating failure ("res=failed"). These often appear together with the same time stamp, process ID, and originating IP address. 
+
+The errors are mainly related to failed login attempts, indicated by the "USER_LOGIN" types with "res=failed". This could be due to invalid or incorrect user credentials. Moreover, the "USER_ERR" type with "op=PAM:bad_ident" signals that the system could not identify the user trying to login, often because the system does not recognize the account.
+
+The logs suggest that the system was enduring a constant series of failed login attempts, possible signs of a brute force attack. Additionally, it seems that there are successful logins from the account "professor". 
+
+Despite the continual unsuccessful login attempts, there is no indication of any breach or compromise in these logs.
+4c68384e-6a0c-4cec-b3ef-22f69dd8c5f6
+----------------------
+Command: tar -czvf archive.tar.gz example-moved.txt
+Return Value: The main types of messages in this log data are: USER_LOGIN, USER_ERR, USER_ACCT, CRED_ACQ, LOGIN, SYSCALL, PROCTITLE, USER_START, USER_END, CRED_DISP, SERVICE_START, SERVICE_STOP, and some unknown records.
+
+Each message type provides different key details:
+- USER_LOGIN: Contains information about user login attempts, the account, the executable used for login attempts, hostname, the IP address, and the terminal. The result of the login attempt (success or failure) is also recorded.
+- USER_ERR: Includes details about user errors, specifically invalid user details. Information on the executable used for these login attempts, the IP address, and the outcome are included.
+- USER_ACCT, CRED_ACQ, LOGIN: These messages are related to successful login processes and credential acquisition.
+326141e0-702a-4612-b3cf-79fbf535ace7
+----------------------
+Command: tar -xvzf archive.tar.gz
+Return Value: 
+----------------------
+Command: grep "hello" ~/example-moved.txt
+Return Value: 
