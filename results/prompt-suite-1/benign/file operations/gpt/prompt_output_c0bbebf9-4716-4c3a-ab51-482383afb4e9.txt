@@ -1,0 +1,9 @@
+1. Main types of messages in these logs are User Login attempts, User Errors, and Service Start & Stop operations.
+
+2. For each type of message:
+
+- User Login attempts (type=USER_LOGIN): These logs display information about the user login attempts with details like Process ID (pid), User ID (uid), Audit User ID (auid), Session ID (ses), Operation (op=login), Account (acct), Executable file path (exe), IP Address (addr), Terminal (terminal), and Result of the login attempt (res).
+
+- User Errors (type=USER_ERR): These logs display information about the failed user operations. The key details include Process ID (pid), User ID (uid), Audit User ID (auid), Session ID (ses), Operation (op=PAM:bad_ident), Account (acct), Executable file path (exe), IP Address (addr), Terminal (terminal), and Result of the operation (res).
+
+- Service Start & Stop (type=SERVICE_START, SERVICE_STOP): These logs provide information about the start and stop of services including Process ID (pid), User ID (uid), Audit User ID (auid), Session ID (ses), unit name, service command (

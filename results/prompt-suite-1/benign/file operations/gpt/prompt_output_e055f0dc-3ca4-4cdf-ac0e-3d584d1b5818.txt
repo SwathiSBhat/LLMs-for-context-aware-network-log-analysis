@@ -1,0 +1,16 @@
+The logs contain three main types of messages which are USER_LOGIN, USER_ERR and USER_ACCT which are essentially types of audit events that Linux logs. 
+
+1. USER_LOGIN: This type of log message shows a user login attempt. The logs show the operation (`op`), the account (`acct`), the program execution (`exe`), the addresses (`hostname` and `addr`) involved, the terminal used (`terminal`), and the result (`res`) of the operation. In this case, all the `res` values flagged as 'failed'.
+
+2. USER_ERR: These messages are generated when there is an error during the user validation process. In these logs, the operation is tied to PAM (Pluggable Authentication Modules), a system security tool. As before, the program execution (`exe`) and addresses (`hostname` and `addr`) are also logged. The `res` of these operations are also all flagged as 'failed'.
+
+3. USER_ACCT: This message type is connected with user account activities. As with above, the log details the operation (`op`), grantors, account (`acct`) involved in the operation, the program execution (`exe`), host and network address (`hostname` and `addr`), and terminal (`terminal`). In these records, the operations are successful.
+
+A recurring pattern in these logs is the failed login attempts from different IP addresses. It seems there are repeated unsuccessful attempts to access the system using SSH, logging in with different account names. 
+
+Potential causes for the errors could be:
+- Incorrect login details: This could be a user error or a potential brute force attack to try and gain access to system accounts. 
+- Network issues: In some cases, unsuccessful login attempts may be due to network connectivity issues.
+- Invalid user data (`PAM:bad_ident` error): This could mean that the system has received a login request from an account that does not exist on the system. 
+
+Based on these logs, the overall health of the system seems compromised due to persistent failed login attempts. It seems like there could be an unauthorized access attempt going on since there are multiple failed login attempts from various IP addresses. Security measures should be reviewed and potentially enhanced to mitigate the risk.

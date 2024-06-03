@@ -1,0 +1,13 @@
+The logs primarily contain User Login failure messages, User Error messages, and User Account messages. 
+
+- User Login failure messages: These logs record failed attempt to log into the system. The logs provide details about the operation performed (login), the user account involved which is encoded, the executable responsible ("/usr/sbin/sshd"), involved IP addresses, and the result of the operation (failed). 
+
+- User Error messages: These messages seem to be related to failed identification with the Pluggable Authentication Modules (PAM). They provide information similar to User Login logs but include the description "PAM:bad_ident". 
+
+- User Account messages: These logs pertain to successful operations involving the PAM, such as setting credentials, opening a user session, and closing a session for the "professor" user. 
+
+Recurring patterns observed are that there were failed login attempts from different IP addresses. The account usernames are encoded, and it is difficult to determine the specific accounts being targeted. In addition, there were successful logins and operations executed by the user "professor." 
+
+The potential causes for the errors could be an unauthorized user(s) trying to gain access to the system using invalid credentials. This could indicate attempted security breaches. 
+
+Based on these logs, the system appears to be under the risk of a security breach given the recurrence of failed login attempts. However, authentication controls seem to be appropriately configured since invalid login attempts are being declined. The system is also effectively recording activities, both successful and failed, which is a good sign. However, repeated failed login attempts warrant an investigation into a potential cyber attack.

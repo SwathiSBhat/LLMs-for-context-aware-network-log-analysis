@@ -1,0 +1,27 @@
+The logs primarily contain audit records from Linux's audit daemon (auditd), which are neither errors, warnings, or info messages. Instead, they record the activities and events on a Linux system for security auditing purposes. 
+
+1. USER_ACCT: This type of message appears when a user account is successfully accessed. Key details provided include the userID, and details of the user's account. 
+
+2. CRED_ACQ: This message is logged when a user acquires credentials. It includes details such as process id, user id, user's audit id, and the name of the user who acquired credentials.
+
+3. LOGIN: This log message is recorded when the login event occurs. Information provided includes pid (process id), uid (user id), auid (audit uid), old-auid (old audit uid), and ses (session id).
+
+4. SYSCALL: It logs system call made by a process. It provides an extensive amount of information like pid, uid, gid, syscall id, exit value, syscall arguments and executable that made the syscall.
+
+5. PROCTITLE: This records the proctitle set by prctl.
+
+6. USER_START: This logs the start of a new user session with details about the user and session.
+
+7. USER_END: This logs the end of a user session.
+
+8. USER_LOGIN: This log message is recorded when a login attempt is made.
+
+9. USER_ERR: This records when a user error has occurred. 
+
+Recurring patterns in the logs include lots of USER_ACCT, CRED_ACQ, LOGIN, and SYSCALL log messages. These messages are expected in normal functioning of the system as users log in and execute various commands.
+
+Some of the log records labeled 'unknown' may indicate failed or unsuccessful activities.
+
+There are no specific error messages in the provided logs that suggest an error or a warning state. However, the logs indicate several failed login attempts which could potentially suggest an intrusion attempt or incorrect user credentials being used.
+
+Based on these logs, the system appears to be functioning normally, although some failed login attempts should be investigated.
