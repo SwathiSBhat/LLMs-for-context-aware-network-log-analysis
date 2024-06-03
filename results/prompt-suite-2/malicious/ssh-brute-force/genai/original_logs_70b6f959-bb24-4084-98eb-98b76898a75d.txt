@@ -1,0 +1,10 @@
+For vm-1a:
+file /var/log/audit/audit.log at 2024-06-03T02:59:07.768Z, log record: type=SERVICE_START msg=audit(1717383543.612:177): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='unit=gce-workload-cert-refresh comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+file /var/log/audit/audit.log at 2024-06-03T02:59:07.768Z, log record: type=SERVICE_STOP msg=audit(1717383543.612:178): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='unit=gce-workload-cert-refresh comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+file /var/log/audit/audit.log at 2024-06-03T02:59:03.612Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T02:59:03.612Z, log record: unknown
+For vm-2a:
+file /var/log/audit/audit.log at 2024-06-03T02:58:19.639Z, log record: type=SERVICE_START msg=audit(1717383491.411:199): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='unit=gce-workload-cert-refresh comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+file /var/log/audit/audit.log at 2024-06-03T02:58:19.640Z, log record: type=SERVICE_STOP msg=audit(1717383491.411:200): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='unit=gce-workload-cert-refresh comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+file /var/log/audit/audit.log at 2024-06-03T02:58:11.411Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T02:58:11.411Z, log record: unknown

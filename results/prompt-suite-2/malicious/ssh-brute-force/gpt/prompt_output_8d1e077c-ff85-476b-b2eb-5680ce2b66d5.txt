@@ -1,0 +1,21 @@
+The main types of messages in these logs are USER_LOGIN, USER_ERR and several unknown log records.
+
+1. USER_LOGIN: These messages provide details about attempted logins into the system. The key details they provide include the time of the attempt, the process id (pid), user id (uid), audit id (auid), session id (ses), the targeted account, the executable used in the attempt, terminal, and the result of the operation.   
+
+2. USER_ERR: These log messages are indicative of an error during the user identification process. They provide similar details as the USER_LOGIN messages but also include additional details about a failure in the user identification process.
+
+3. Unknown logs: There are several instances of unknown log records which don't provide details about the activities. Further measures would need to be taken to investigate these records.
+
+Yes, there are significant recurrent patterns:
+
+- Multiple unsuccessful login attempts ('res=failed') using the ssh daemon ('/usr/sbin/sshd'). This hints at a possible brute force attack where someone or an automated system is trying to gain unauthorized access.
+
+- Failed user identifications op=PAM:bad_ident which means there is an issue identifying users when they are attempting to log in.
+
+The errors in these logs suggest one or more of these:
+
+- Unauthorized or illegitimate access attempts – someone outside of your organization is trying to gain access to your network.
+
+- Incorrect user identification configuration – there could be a configuration issue in the PAM module leading to failed user identifications.
+
+From these logs, the system in question seems to be experiencing persistent and potentially unauthorized login attempts that are failing. The recurring USER_ERR messages are problematic and indicate that incorrect or invalid user identifications are recurring over time. This could also indicate a potential security issue that could be underpinned by an attempted cyber attack. The health of the system, from a security standpoint, appears compromised, potentially through attempted brute force attacks. It is recommended to further investigate these logs, attempt to identify the source of these login attempts, and adjust security measures as needed.

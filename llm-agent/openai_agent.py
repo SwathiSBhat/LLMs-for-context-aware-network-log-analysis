@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 from openai import AsyncOpenAI
 
 from log_extractor.elk import ELKLogExtractor
-from thought.tree_of_thought import create_tree_of_thought_prompts_suite_1
+from thought.tree_of_thought import create_tree_of_thought_prompts_suite_2
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -38,6 +38,7 @@ def get_recent_logs(time_range):
     message = ELKLogExtractor.extract_message(json.loads(_log))
     paragraph = ELKLogExtractor.convert_to_paragraph(message)
     logger.info("Logs processed into paragraph.")
+    print(paragraph)
     return paragraph
 
 
@@ -77,7 +78,7 @@ async def main(time_range):
     messages = [
         {"role": "system", "content": "Analyze the following logs:"},
         {"role": "user", "content": '\n'.join(summarized_logs)},
-        {"role": "user", "content": '\n'.join(create_tree_of_thought_prompts_suite_1())}
+        {"role": "user", "content": '\n'.join(create_tree_of_thought_prompts_suite_2())}
     ]
 
     # Process the response from the OpenAI API

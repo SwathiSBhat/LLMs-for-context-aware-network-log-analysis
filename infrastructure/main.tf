@@ -173,11 +173,10 @@ resource "google_compute_firewall" "allow-application" {
   network = google_compute_network.vpc_network_1.name
 
   allow {
-    protocol = "tcp"
-    ports    = ["8888"]
+    protocol = "icmp"
   }
 
-  source_ranges = ["10.0.2.0/24"]  // Adjust based on your network's CIDR or specific needs
+  source_ranges = ["0.0.0.0/0"]  // Adjust based on your network's CIDR or specific needs
   target_tags   = ["student"]
 }
 
