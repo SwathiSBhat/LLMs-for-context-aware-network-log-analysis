@@ -11,7 +11,7 @@ def create_tree_of_thought_prompts_suite_1():
 
 def create_tree_of_thought_prompts_suite_2():
     prompts = [
-        "Imagine you are a system administrator reviewing these logs",
+        "Imagine you are a system administrator reviewing these logs, not standards",
         "What are the main types of messages in these logs (e.g., errors, warnings, info)?",
         "For each type of message, what are the key details provided?",
         "Are there any recurring patterns or repeated messages?",

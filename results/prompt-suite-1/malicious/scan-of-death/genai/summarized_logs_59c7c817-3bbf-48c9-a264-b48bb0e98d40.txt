@@ -1,0 +1,9 @@
+For vm-1a:
+file /var/log/audit/audit.log at 2024-06-03T04:06:18.649Z, log record: type=SERVICE_START msg=audit(1717387577.989:206): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='unit=gce-workload-cert-refresh comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+file /var/log/audit/audit.log at 2024-06-03T04:06:18.649Z, log record: type=SERVICE_STOP msg=audit(1717387577.989:207): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='unit=gce-workload-cert-refresh comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+file /var/log/audit/audit.log at 2024-06-03T04:06:17.989Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T04:06:17.989Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T04:03:44.644Z, log record: type=USER_END msg=audit(1717387421.112:204): pid=2469 uid=0 auid=1001 ses=5 subj=unconfined msg='op=PAM:session_close grantors=pam_selinux,pam_loginuid,pam_keyinit,pam_permit,pam_umask,pam_unix,pam_systemd,pam_mail,pam_limits,pam_env,pam_env,pam_selinux acct="student" exe="/usr/sbin/sshd" hostname=169.231.25.179 addr=169.231.25.179 terminal=ssh res=success'
+file /var/log/audit/audit.log at 2024-06-03T04:03:44.645Z, log record: type=CRED_DISP msg=audit(1717387421.112:205): pid=2469 uid=0 auid=1001 ses=5 subj=unconfined msg='op=PAM:setcred grantors=pam_permit acct="student" exe="/usr/sbin/sshd" hostname=169.231.25.179 addr=169.231.25.179 terminal=ssh res=success'
+file /var/log/audit/audit.log at 2024-06-03T04:03:41.112Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-03T04:03:41.112Z, log record: unknown

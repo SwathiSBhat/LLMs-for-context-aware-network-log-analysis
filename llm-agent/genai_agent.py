@@ -8,7 +8,7 @@ import google.generativeai as genai
 from dotenv import load_dotenv
 
 from log_extractor.elk import ELKLogExtractor
-from thought.tree_of_thought import create_tree_of_thought_prompts_suite_1
+from thought.tree_of_thought import create_tree_of_thought_prompts_suite_2
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -78,7 +78,7 @@ def main(time_range):
     messages = [
         {"role": "system", "content": "Analyze the following logs:"},
         {"role": "user", "content": '\n'.join(logs)},
-        {"role": "user", "content": '\n'.join(create_tree_of_thought_prompts_suite_1())}
+        {"role": "user", "content": '\n'.join(create_tree_of_thought_prompts_suite_2())}
     ]
     response = model.generate_content(str(messages))
     logger.info("Generated response from the model.")
