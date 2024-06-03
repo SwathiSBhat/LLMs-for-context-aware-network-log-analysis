@@ -1,0 +1,185 @@
+Command: wget https://code.jquery.com/jquery-3.6.0.min.js
+Return Value: The logs provided contain a host of information about connectivity, user actions, and service usage with associated network specifics. Here are the observations:
+
+Network Connection Attempts:
+Connection attempts to the server can be seen from two distinct IP addresses:
+
+1. IP Address 68.108.247.157
+There are multiple log entries involving this IP address. This address seems to be associated with a successful SSH login event.
+
+2. IP Address 222.104.226.75
+There are log records associated with this IP address. It seems to be involved in multiple failed login attempts.
+
+SSH Login Attempts:
+Three SSH login attempts can be observed in the logs, two of which have failed and one which was successful:
+
+1. A successful login attempt was observed from 'professor' from IP address 68.108.247.157.
+2. Two failed attempts were observed from log entries with a hexadecimal string representing the username (28756E6B6E6F776E207573657229, 28696E76616C6964207573657229). These are happening from the IP address 222.104.226.75.
+
+Service Usage:
+The audit.log mentions the process 'sshd' often, which refers to the SSH daemon - the service allowing the secure remote management of the system.
+There are no other concrete details regarding starting and stopping services within the give logs.
+053ae159-7aab-4aa4-9de5-163d6e688980
+----------------------
+Command: sudo systemctl start apache2
+Return Value: The audit logs show the following details:
+
+1. SSH Connection Attempts:
+
+- Timestamp: 2024-06-03T01:45:31.033Z
+- IP Address: 68.108.247.157
+- The logs indicate a successful SSH login attempt by the user "professor". The associated process was executed by the pid=10771.
+
+2. Network Service Usage:
+   
+- Timestamp: 2024-06-03T01:45:31.033Z
+- A command executed as root, pid=10845 by the user 'professor', to start the apache2 service ("cmd=73797374656D63746C2073746172742061706163686532" which when translated from hex to ascii becomes "systemctl start apache2")
+
+3. Ending of sessions:
+
+- Timestamp: 2024-06-03T01:45:31.033Z
+- An SSH session started by the user "professor" (as identified by auid=1001 and the IP 68.108.247.157) was closed, as indicated by the 'session_close' operation associated with the '/usr/sbin/sshd' executable.
+  
+From these logs, we can conclude that the machine experienced some activity with the user 'professor' logging in via SSH, executing commands (systemctl start apache2) as root, and then logging out.
+
+The involved IP address in all these transactions is: 68.108.247.157.
+542c7215-1fad-4a76-94e8-003fec81b7b7
+----------------------
+Command: sudo systemctl stop apache2
+Return Value: There are various recorded successful network connection attempts, specifically via SSH protocol. This is illustrated by the recurring use of "exe="/usr/sbin/sshd"". The IP address involved in these instances is 68.108.247.157.
+
+- Regarding SSH login attempts, user "professor" logged into the SSH service as illustrated in the logs. The associated IP address for this login is 68.108.247.157.
+
+- Network services usage depicted in the records show that the SSH service was utilized extensively for user login. Additionally, the Apache2 service was stopped as shown by the log entry with 'unit=apache2 comm="systemd"' in it. This action was performed by the root user logged in from an unspecified IP address.
+3f37c309-4580-4af1-9079-aa78f63e297e
+----------------------
+Command: netstat -tuln
+Return Value: 1. Network Connection Attempts:
+
+There seems to be a series of SSH connections established from the IP Address 68.108.247.157.
+
+2. SSH Login Attempts:
+
+The logged data indicates a successful SSH login attempt by a user named "professor" from IP address 68.108.247.157. The login was executed with root privileges as indicated by "uid=0".
+
+3. Network Services Usage:
+
+It's noticeable that the `sshd` service has been used for SSH connections. Looking at the log sequence, it follows a pattern of USER_ACCT -> CRED_ACQ -> LOGIN -> SYSCALL -> PROCTITLE -> USER_START -> CRED_ACQ -> USER_END -> CRED_DISP. This pattern indicates that a user session is being started and stopped, which suggests that the service is being actively used for SSH sessions but there aren't any explicit log entries about start and stop of the sshd service. However, one can infer that the sshd service is running on the system.
+525f4084-8382-45c5-af21-15d1afd56b3d
+----------------------
+Command: sudo ifconfig ens4 up
+Return Value: From the logs analyzed:
+
+1. Network connection attempts:
+
+   For vm-2a, between 2024-06-03T01:49:05.240Z and 2024-06-03T01:49:15.049Z, there are multiple network connection attempts with 'unknown' log records. Unfortunately, without exact content, it’s not possible to provide IP addresses involved.
+
+2. SSH login attempts:
+
+   For vm-2a, there is a successful SSH login attempt at 2024-06-03T01:49:15.049Z by a user named 'professor' from the IP address 68.108.247.157.
+
+3. Network service usage:
+
+   For vm-1a, a service named 'gce-workload-cert-refresh' was started and stopped successfully as per log records at 2024-06-03T01:49:21.834Z.
+
+   For vm-2a, the same 'gce-workload-cert-refresh' service was started and stopped successfully at 2024-06-03T01:48:41.047Z as per logs.
+
+Please note that due to many 'unknown' log records, it is not possible to provide a more detailed analysis.
+ad1911ed-366b-4711-a8aa-76717b3aa20a
+----------------------
+Command: ifconfig
+Return Value: From the given logs, there is SSH login attempts reported on vm-2a. 
+
+The user "professor" made multiple operations that started at 2024-06-03T01:50:29.052Z via SSH from the IP address 68.108.247.157.
+
+The operations include USER_ACCT which indicates successful accounting of the user's login, CRED_ACQ which represents the acquisition of user's credentials successfully, LOGIN which indicates that a new login session was started.
+
+Further the log shows a USER_START that indicates that a session was opened for the user to access the system, followed by a CRED_ACQ indicating that the system again checked the user’s credentials successfully.
+
+Afterward, the USER_END log entry indicates that the user session was closed and the CRED_DISP entry shows that the user's credentials were disposed after the end of a session.
+
+No other network connection attempts or usage of network services are reported in the logs provided. Also, no network service start or stop events are recorded in the auditD logs provided.
+79e790e5-d345-4ed6-b4d8-d565b770bd32
+----------------------
+Command: ss -tuln
+Return Value: The analysis of the provided logs is presented below:
+
+Network Connection Attempts:
+There is a successful SSH login from IP address 68.108.247.157 to the account of username "professor". This attempt resulted in accessing, setting credentials and closing session in the system. 
+
+SSH Login Attempts:
+The SSH login attempt is from the username "professor" connecting from IP address 68.108.247.157. The user "professor" has been granted access and the process responsible is "/usr/sbin/sshd".
+
+Network Services Usage:
+In these logs, we see usage of "/usr/sbin/sshd" network service which is responsible for handling SSH connections. There is no visible log entry about starting or stopping this service but there are various operations associated with this service like setting credentials, opening and closing sessions for the user "professor". These operations are combined with other validated actions under the Pluggable Authentication Modules (PAM) of Linux demonstrated by "PAM" logs. The operations include accounting, setting credentials, session opening, session closing and so on.
+
+f16203f9-17cd-4ce0-86af-c25e8371c953
+----------------------
+Command: ip -s link
+Return Value: Based on the logs provided, there appears to be activities around network connections and SSH login attempts:
+
+1. Network connection attempts: There's clear evidence of networking activities, although specific connection attempts are obscured as "unknown" in the initial logs. At one point, there's a network activity involving the IP address 68.108.247.157, although it's unspecified whether this marks an attempt to connect to the network or merely a transaction within an already established connection.
+
+2. SSH login: An account named "professor" has performed login actions via SSH. It's stated in multiple instances with different session and process IDs. The user logged in from an IP address: 68.108.247.157. The log suggests successful login attempts considering the return status given as "success" in several entries.
+
+3. Network Services Utilization: As for the usage of the network services, it seems that there were several processes executed under "sshd" (Secure Shell Daemon) service. There's evidence of user authentication, session initiation, and session closure corresponding to the "USER_ACCT", "USER_START", and "USER_END" log entries respectively. The "sshd" service is utilized to facilitate the SSH login attempts.
+
+However, it's important to note that a significant amount of logging information is marked as "unknown". Hence, to get further insights, it would be necessary to have more detailed logs. If these unknown entries indicate potential security concerns, it would be advisable to investigate them further.
+7ef5b127-b4e3-4ea6-838b-1f614e1f05cf
+----------------------
+Command: sudo systemd-resolve --flush-caches
+Return Value: Analyzing the given logs, the following patterns have been identified:
+
+1. Network Connection Attempts:
+
+There have been multiple instances of network connections from the IP address '68.108.247.157'. These can be seen in the audit logs where the ssh daemon '/usr/sbin/sshd' is executed.
+
+2. SSH Login Attempts:
+
+An SSH login attempt were performed by the user 'professor' from the IP address '68.108.247.157'. This can be determined from the log entries showing 'accounting grantors=pam_permit acct="professor" exe="/usr/sbin/sshd"' and 'hostname=68.108.247.157'. 
+
+3. Network Service Usage:
+
+From the audit logs, it can be seen that:
+
+   - A session was initiated by the 'professor' account using the ssh daemon. This was recorded with the log message                  'op=PAM:session_open'.
+   
+   - A sudo operation was executed, performing the command '73797374656D642D7265736F6C7665202D2D666C7573682D636163686573'. The user performing this sudo operation was 'root', and the operation was successful ('res=success').
+   
+   - Two sessions associated with the 'root' and 'professor' accounts were closed ('op=PAM:session_close'). This may indicate that a user logged out or a service was stopped during these sessions.
+
+In summary, there is a prominent pattern of the user 'professor' initiating a session via SSH from the IP address '68.108.247.157', performing operations as root, and then closing the session.
+
+Unknown logs entries exist in log records and they might require further investigation as there seems to be not enough information for an accurate summary.
+f26aad35-8ca9-4e7b-83d1-8880514c8add
+----------------------
+Command: route -n
+Return Value: 1. Network Connection Attempts:
+   There are two network connections recorded that were initiated from different IP addresses:
+
+    - IP address "68.108.247.157" initiated multiple connection attempts, with several USER_ACCT, CRED_ACQ, LOGIN, USER_START, USER_END and CRED_DISP messages - all indicating a series of successful authentication and session setup/closure events.
+    - IP address "218.158.211.78" initiated one connection attempt, which resulted in a USER_ERR; the operation failed, possibly due to an incorrect SSH login, as indicated by the "bad_ident" mistake in the log message.
+
+2. SSH Login Attempts:
+    - A successful SSH login attempt was recorded for the "professor" account coming from IP address "68.108.247.157". As indicated by CRED_ACQ for "professor", Login messages, and USER_START with username "professor", this SSH session was successfully started and then closed normally, according to the log messages USER_END and CRED_DISP for "professor".
+    - IP address "218.158.211.78" tried to establish an SSH connection but an error was logged due to a bad identification: "PAM:bad_ident". As a result, the username associated with this failed SSH connection attempt is unknown.
+
+3. Network Services Usage:
+   sshd, the Secure Shell Daemon service, seems to have been significantly utilized, as shown in the logs. The logs specifically mark the start and end of individual sessions via sshd, which listens for connections from clients. It initiates setup of secure sessions after client connection. There is no explicit log entry here indicating that the sshd service itself started or stopped; rather, they show the beginning and ending of user sessions over SSH.
+7e39b100-9db7-46c6-9583-0d500205505a
+----------------------
+Command: arp -a
+Return Value: From the logs, it seems there's been a single network connection attempt via SSH protocol. The connection request was from the IP address 68.108.247.157. 
+
+Details of SSH login attempts:
+- There was a successful SSH login attempt by the user "professor" from the IP address 68.108.247.157. This can be confirmed from USER_ACCT, CRED_ACQ, LOGIN, and SYSCALL log records. 
+
+Details of usage of network services: 
+- An SSHD service was started by the "professor". This is detailed in the USER_START log record, which signifies the start of a new session. 
+- The session was shortly closed as described in the USER_END log record. During the session, the permission/rights were set by various PAM (Pluggable Authentication Module) modules.
+
+In all logs, the process (command, also known as 'comm') involved in these operations was sshd, a daemon that provides the SSH protocol.
+  
+Please note, the audit log records with the 'log record: unknown' did not provide any useful information for this analysis.
+28871421-b967-452d-a724-42ab915450ff
+----------------------

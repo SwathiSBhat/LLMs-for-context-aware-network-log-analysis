@@ -1,0 +1,10 @@
+The analysis of the provided logs is presented below:
+
+Network Connection Attempts:
+There is a successful SSH login from IP address 68.108.247.157 to the account of username "professor". This attempt resulted in accessing, setting credentials and closing session in the system. 
+
+SSH Login Attempts:
+The SSH login attempt is from the username "professor" connecting from IP address 68.108.247.157. The user "professor" has been granted access and the process responsible is "/usr/sbin/sshd".
+
+Network Services Usage:
+In these logs, we see usage of "/usr/sbin/sshd" network service which is responsible for handling SSH connections. There is no visible log entry about starting or stopping this service but there are various operations associated with this service like setting credentials, opening and closing sessions for the user "professor". These operations are combined with other validated actions under the Pluggable Authentication Modules (PAM) of Linux demonstrated by "PAM" logs. The operations include accounting, setting credentials, session opening, session closing and so on.

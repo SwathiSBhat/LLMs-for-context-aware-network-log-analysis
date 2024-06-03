@@ -1,0 +1,12 @@
+1. Network Connection Attempts:
+   There are two network connections recorded that were initiated from different IP addresses:
+
+    - IP address "68.108.247.157" initiated multiple connection attempts, with several USER_ACCT, CRED_ACQ, LOGIN, USER_START, USER_END and CRED_DISP messages - all indicating a series of successful authentication and session setup/closure events.
+    - IP address "218.158.211.78" initiated one connection attempt, which resulted in a USER_ERR; the operation failed, possibly due to an incorrect SSH login, as indicated by the "bad_ident" mistake in the log message.
+
+2. SSH Login Attempts:
+    - A successful SSH login attempt was recorded for the "professor" account coming from IP address "68.108.247.157". As indicated by CRED_ACQ for "professor", Login messages, and USER_START with username "professor", this SSH session was successfully started and then closed normally, according to the log messages USER_END and CRED_DISP for "professor".
+    - IP address "218.158.211.78" tried to establish an SSH connection but an error was logged due to a bad identification: "PAM:bad_ident". As a result, the username associated with this failed SSH connection attempt is unknown.
+
+3. Network Services Usage:
+   sshd, the Secure Shell Daemon service, seems to have been significantly utilized, as shown in the logs. The logs specifically mark the start and end of individual sessions via sshd, which listens for connections from clients. It initiates setup of secure sessions after client connection. There is no explicit log entry here indicating that the sshd service itself started or stopped; rather, they show the beginning and ending of user sessions over SSH.

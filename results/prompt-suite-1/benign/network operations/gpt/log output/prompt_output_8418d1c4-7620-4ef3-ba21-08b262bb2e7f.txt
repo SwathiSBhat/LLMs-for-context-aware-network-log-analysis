@@ -1,0 +1,16 @@
+The main types of messages in these logs are USER_LOGIN, USER_ERR, USER_ACCT, CRED_ACQ, LOGIN, SYSCALL, PROCTITLE, USER_START, SERVICE_START, USER_END, CRED_REFR, and CRED_DISP.
+
+Key details in these types of events include:
+- USER_LOGIN, USER_ERR, and USER_ACCT: Include the pid, uid, auid, ses, operation (op), account under operation (acct), the executable involved (exe), hostname, address of the user, and terminal. Also, the result of such operation (res) whether it was a success or a failure.
+- CRED_ACQ and CRED_DISP: Contain information about credentials being given or taken away including pid, uid, auid, ses, operation (op), the list of grantors, the account involved (acct), executable involved (exe), hostname, address of the user, and terminal. Furthermore, the success or failure of the operation (res).
+- LOGIN: This contains information including pid, uid, old-auid, auid, tty,  old-ses, ses and res.
+- SYSCALL: Include the system call number, process PID, user ID, audit user ID, sessionId, success or failure of the event, as well as details of the syscall itself.
+- PROCTITLE: Includes a proctitle attribute that gives the command line of the syscall.
+- USER_START and USER_END: Contains information about system users logging in or logging out.
+- SERVICE_START: Provides information about a service that is starting.
+  
+The logs contain recurring patterns like USER_ERR and USER_LOGIN which suggest failed login attempts. 
+
+The potential cause of the USER_ERR is that someone is trying to connect via sshd but failing because of a wrong username provided during the login. This could be due to a user forgetting their correct username or a failed hacking attempt.
+
+Overall, the system seems to be undergoing some unauthorized login attempts which are consistently failing. However, not all is troubling as legitimate system operations are also recorded, such as starting an apache2 service, user logins/logouts, and credential usage events. So, unless the failure of unauthorized logins is a concern, the system could be considered to be running as expected.

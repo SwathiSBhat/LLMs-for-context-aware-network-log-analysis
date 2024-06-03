@@ -1,0 +1,20 @@
+The main types of messages in these logs are audit log records related to user account activities, credentials acquisition, login details, system calls, process titles, session start and end, SSH login information, and some unknown or unidentified logs.
+
+The details provided in the messages include the following:
+- USER_ACCT: Details about user account operations.
+- CRED_ACQ: Credentials acquisition related logs.
+- LOGIN: Details about login attempts.
+- SYSCALL: Information related to system calls.
+- PROCTITLE: The title or name of the process.
+- USER_START: Signal for the start of a user session.
+- USER_END: Signal for the end of a user session.
+- CRED_DISP: Final display of the credentials after the session is ended.
+- Unknown logs: These could be potential errors where log extraction is failed or the log type is not recognized.
+
+Recurring patterns:
+- Certain types of log records are repeating such as USER_ACCT, CRED_ACQ, USER_START, USER_END, CRED_DISP. They show the normal process of user session initialization and termination via SSH.
+- The same user 'professor' is operating, and the terminal being used is SSH. The same IP address can also be seen.
+
+Potential causes for Unknown messages could be that there's corrupt data, unrecognized log types or running out of space.
+
+Overall, the system appears to be operating normally, with successful user authorization, credential acquisition, user session operations and shutting down. The "unknown" log records could potentially indicate some problems, but without additional information, it's hard to make a conclusive assessment. These unknown records may need further investigation.

@@ -1,0 +1,11 @@
+From the given logs, there is SSH login attempts reported on vm-2a. 
+
+The user "professor" made multiple operations that started at 2024-06-03T01:50:29.052Z via SSH from the IP address 68.108.247.157.
+
+The operations include USER_ACCT which indicates successful accounting of the user's login, CRED_ACQ which represents the acquisition of user's credentials successfully, LOGIN which indicates that a new login session was started.
+
+Further the log shows a USER_START that indicates that a session was opened for the user to access the system, followed by a CRED_ACQ indicating that the system again checked the user’s credentials successfully.
+
+Afterward, the USER_END log entry indicates that the user session was closed and the CRED_DISP entry shows that the user's credentials were disposed after the end of a session.
+
+No other network connection attempts or usage of network services are reported in the logs provided. Also, no network service start or stop events are recorded in the auditD logs provided.

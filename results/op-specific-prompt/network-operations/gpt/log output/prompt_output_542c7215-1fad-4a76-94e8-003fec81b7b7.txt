@@ -1,0 +1,21 @@
+The audit logs show the following details:
+
+1. SSH Connection Attempts:
+
+- Timestamp: 2024-06-03T01:45:31.033Z
+- IP Address: 68.108.247.157
+- The logs indicate a successful SSH login attempt by the user "professor". The associated process was executed by the pid=10771.
+
+2. Network Service Usage:
+   
+- Timestamp: 2024-06-03T01:45:31.033Z
+- A command executed as root, pid=10845 by the user 'professor', to start the apache2 service ("cmd=73797374656D63746C2073746172742061706163686532" which when translated from hex to ascii becomes "systemctl start apache2")
+
+3. Ending of sessions:
+
+- Timestamp: 2024-06-03T01:45:31.033Z
+- An SSH session started by the user "professor" (as identified by auid=1001 and the IP 68.108.247.157) was closed, as indicated by the 'session_close' operation associated with the '/usr/sbin/sshd' executable.
+  
+From these logs, we can conclude that the machine experienced some activity with the user 'professor' logging in via SSH, executing commands (systemctl start apache2) as root, and then logging out.
+
+The involved IP address in all these transactions is: 68.108.247.157.

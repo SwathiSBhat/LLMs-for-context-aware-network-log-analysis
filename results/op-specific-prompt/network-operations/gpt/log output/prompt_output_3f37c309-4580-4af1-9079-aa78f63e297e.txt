@@ -1,0 +1,5 @@
+There are various recorded successful network connection attempts, specifically via SSH protocol. This is illustrated by the recurring use of "exe="/usr/sbin/sshd"". The IP address involved in these instances is 68.108.247.157.
+
+- Regarding SSH login attempts, user "professor" logged into the SSH service as illustrated in the logs. The associated IP address for this login is 68.108.247.157.
+
+- Network services usage depicted in the records show that the SSH service was utilized extensively for user login. Additionally, the Apache2 service was stopped as shown by the log entry with 'unit=apache2 comm="systemd"' in it. This action was performed by the root user logged in from an unspecified IP address.
