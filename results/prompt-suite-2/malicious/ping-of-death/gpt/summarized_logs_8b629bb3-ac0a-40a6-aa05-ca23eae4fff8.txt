@@ -1,0 +1,35 @@
+For vm-2a:
+file /var/log/syslog at 2024-06-05T05:10:21.052Z, log record: Jun  5 05:10:18 vm-2a ansible-async_wrapper.py: 2238 still running (31535395)
+file /var/log/audit/audit.log at 2024-06-05T05:10:17.216Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-05T05:10:17.216Z, log record: unknown
+file /var/log/audit/audit.log at 2024-06-05T05:10:17.352Z, log record: unknown
+file /var/log/syslog at 2024-06-05T05:10:27.053Z, log record: Jun  5 05:10:23 vm-2a ansible-async_wrapper.py: 2238 still running (31535390)
+file /var/log/syslog at 2024-06-05T05:10:29.053Z, log record: Jun  5 05:10:28 vm-2a ansible-async_wrapper.py: 2238 still running (31535385)
+file /var/log/syslog at 2024-06-05T05:10:07.049Z, log record: Jun  5 05:10:03 vm-2a ansible-async_wrapper.py: 2238 still running (31535410)
+file /var/log/syslog at 2024-06-05T05:10:09.050Z, log record: Jun  5 05:10:08 vm-2a ansible-async_wrapper.py: 2238 still running (31535405)
+file /var/log/syslog at 2024-06-05T05:10:15.051Z, log record: Jun  5 05:10:13 vm-2a ansible-async_wrapper.py: 2238 still running (31535400)
+file /var/log/syslog at 2024-06-05T05:09:55.048Z, log record: Jun  5 05:09:53 vm-2a ansible-async_wrapper.py: 2238 still running (31535420)
+file /var/log/syslog at 2024-06-05T05:10:01.048Z, log record: Jun  5 05:09:58 vm-2a ansible-async_wrapper.py: 2238 still running (31535415)
+file /var/log/syslog at 2024-06-05T05:09:49.046Z, log record: Jun  5 05:09:48 vm-2a ansible-async_wrapper.py: 2238 still running (31535425)
+For vm-1a:
+file /var/log/syslog at 2024-06-05T05:10:16.176Z, log record: Jun  5 05:10:14 vm-1a ansible-async_wrapper.py: 2229 still running (31535395)
+file /var/log/syslog at 2024-06-05T05:10:22.177Z, log record: Jun  5 05:10:19 vm-1a ansible-async_wrapper.py: 2229 still running (31535390)
+file /var/log/syslog at 2024-06-05T05:10:06.171Z, log record: Jun  5 05:10:04 vm-1a ansible-async_wrapper.py: 2229 still running (31535405)
+file /var/log/syslog at 2024-06-05T05:10:08.172Z, log record: Jun  5 05:10:08 vm-1a kernel: [  779.654895] ICMP packet: IN=ens4 OUT= MAC=42:01:0a:00:01:02:42:01:0a:00:01:01:08:00 SRC=3.82.48.2 DST=10.0.1.2 LEN=36 TOS=0x00 PREC=0x00 TTL=250 ID=6225 DF PROTO=ICMP TYPE=8 CODE=0 ID=30 SEQ=11033
+file /var/log/syslog at 2024-06-05T05:10:10.174Z, log record: Jun  5 05:10:08 vm-1a kernel: [  779.738152] ICMP packet: IN=ens4 OUT= MAC=42:01:0a:00:01:02:42:01:0a:00:01:01:08:00 SRC=3.235.246.1 DST=10.0.1.2 LEN=36 TOS=0x00 PREC=0x00 TTL=251 ID=26280 DF PROTO=ICMP TYPE=8 CODE=0 ID=30 SEQ=11033
+file /var/log/syslog at 2024-06-05T05:10:10.174Z, log record: Jun  5 05:10:08 vm-1a kernel: [  779.852694] ICMP packet: IN=ens4 OUT= MAC=42:01:0a:00:01:02:42:01:0a:00:01:01:08:00 SRC=54.175.182.118 DST=10.0.1.2 LEN=36 TOS=0x00 PREC=0x00 TTL=241 ID=8243 DF PROTO=ICMP TYPE=8 CODE=0 ID=30 SEQ=11033
+file /var/log/syslog at 2024-06-05T05:10:10.174Z, log record: Jun  5 05:10:08 vm-1a kernel: [  779.903622] ICMP packet: IN=ens4 OUT= MAC=42:01:0a:00:01:02:42:01:0a:00:01:01:08:00 SRC=18.204.55.53 DST=10.0.1.2 LEN=36 TOS=0x00 PREC=0x00 TTL=247 ID=33715 DF PROTO=ICMP TYPE=8 CODE=0 ID=30 SEQ=11033
+file /var/log/syslog at 2024-06-05T05:10:10.174Z, log record: Jun  5 05:10:08 vm-1a kernel: [  779.973016] ICMP packet: IN=ens4 OUT= MAC=42:01:0a:00:01:02:42:01:0a:00:01:01:08:00 SRC=54.175.246.67 DST=10.0.1.2 LEN=36 TOS=0x00 PREC=0x00 TTL=251 ID=10394 DF PROTO=ICMP TYPE=8 CODE=0 ID=30 SEQ=11033
+file /var/log/syslog at 2024-06-05T05:10:10.174Z, log record: Jun  5 05:10:09 vm-1a ansible-async_wrapper.py: 2229 still running (31535400)
+file /var/log/syslog at 2024-06-05T05:10:12.174Z, log record: Jun  5 05:10:10 vm-1a kernel: [  782.444641] ICMP packet: IN=ens4 OUT= MAC=42:01:0a:00:01:02:42:01:0a:00:01:01:08:00 SRC=54.234.58.190 DST=10.0.1.2 LEN=36 TOS=0x00 PREC=0x00 TTL=248 ID=55589 DF PROTO=ICMP TYPE=8 CODE=0 ID=30 SEQ=11033
+file /var/log/syslog at 2024-06-05T05:10:14.175Z, log record: Jun  5 05:10:12 vm-1a kernel: [  784.283296] ICMP packet: IN=ens4 OUT= MAC=42:01:0a:00:01:02:42:01:0a:00:01:01:08:00 SRC=54.236.56.125 DST=10.0.1.2 LEN=36 TOS=0x00 PREC=0x00 TTL=247 ID=33682 DF PROTO=ICMP TYPE=8 CODE=0 ID=31 SEQ=16098
+file /var/log/kern.log at 2024-06-05T05:10:15.934Z, log record: Jun  5 05:10:08 vm-1a kernel: [  779.654895] ICMP packet: IN=ens4 OUT= MAC=42:01:0a:00:01:02:42:01:0a:00:01:01:08:00 SRC=3.82.48.2 DST=10.0.1.2 LEN=36 TOS=0x00 PREC=0x00 TTL=250 ID=6225 DF PROTO=ICMP TYPE=8 CODE=0 ID=30 SEQ=11033
+file /var/log/kern.log at 2024-06-05T05:10:15.934Z, log record: Jun  5 05:10:08 vm-1a kernel: [  779.738152] ICMP packet: IN=ens4 OUT= MAC=42:01:0a:00:01:02:42:01:0a:00:01:01:08:00 SRC=3.235.246.1 DST=10.0.1.2 LEN=36 TOS=0x00 PREC=0x00 TTL=251 ID=26280 DF PROTO=ICMP TYPE=8 CODE=0 ID=30 SEQ=11033
+file /var/log/kern.log at 2024-06-05T05:10:15.934Z, log record: Jun  5 05:10:08 vm-1a kernel: [  779.852694] ICMP packet: IN=ens4 OUT= MAC=42:01:0a:00:01:02:42:01:0a:00:01:01:08:00 SRC=54.175.182.118 DST=10.0.1.2 LEN=36 TOS=0x00 PREC=0x00 TTL=241 ID=8243 DF PROTO=ICMP TYPE=8 CODE=0 ID=30 SEQ=11033
+file /var/log/kern.log at 2024-06-05T05:10:15.934Z, log record: Jun  5 05:10:08 vm-1a kernel: [  779.903622] ICMP packet: IN=ens4 OUT= MAC=42:01:0a:00:01:02:42:01:0a:00:01:01:08:00 SRC=18.204.55.53 DST=10.0.1.2 LEN=36 TOS=0x00 PREC=0x00 TTL=247 ID=33715 DF PROTO=ICMP TYPE=8 CODE=0 ID=30 SEQ=11033
+file /var/log/kern.log at 2024-06-05T05:10:15.934Z, log record: Jun  5 05:10:08 vm-1a kernel: [  779.973016] ICMP packet: IN=ens4 OUT= MAC=42:01:0a:00:01:02:42:01:0a:00:01:01:08:00 SRC=54.175.246.67 DST=10.0.1.2 LEN=36 TOS=0x00 PREC=0x00 TTL=251 ID=10394 DF PROTO=ICMP TYPE=8 CODE=0 ID=30 SEQ=11033
+file /var/log/kern.log at 2024-06-05T05:10:15.934Z, log record: Jun  5 05:10:10 vm-1a kernel: [  782.444641] ICMP packet: IN=ens4 OUT= MAC=42:01:0a:00:01:02:42:01:0a:00:01:01:08:00 SRC=54.234.58.190 DST=10.0.1.2 LEN=36 TOS=0x00 PREC=0x00 TTL=248 ID=55589 DF PROTO=ICMP TYPE=8 CODE=0 ID=30 SEQ=11033
+file /var/log/kern.log at 2024-06-05T05:10:15.934Z, log record: Jun  5 05:10:12 vm-1a kernel: [  784.283296] ICMP packet: IN=ens4 OUT= MAC=42:01:0a:00:01:02:42:01:0a:00:01:01:08:00 SRC=54.236.56.125 DST=10.0.1.2 LEN=36 TOS=0x00 PREC=0x00 TTL=247 ID=33682 DF PROTO=ICMP TYPE=8 CODE=0 ID=31 SEQ=16098
+file /var/log/syslog at 2024-06-05T05:09:52.170Z, log record: Jun  5 05:09:49 vm-1a ansible-async_wrapper.py: 2229 still running (31535420)
+file /var/log/syslog at 2024-06-05T05:09:58.170Z, log record: Jun  5 05:09:54 vm-1a ansible-async_wrapper.py: 2229 still running (31535415)
+file /var/log/syslog at 2024-06-05T05:10:00.171Z, log record: Jun  5 05:09:59 vm-1a ansible-async_wrapper.py: 2229 still running (31535410)
