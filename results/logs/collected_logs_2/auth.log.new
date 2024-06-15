@@ -1,0 +1,30 @@
+Jun 15 00:54:46 test sshd[2191]: Connection reset by 14.39.52.41 port 60834 [preauth]
+Jun 15 01:05:05 test gpasswd[2204]: user ammoniade95 added by root to group google-sudoers
+Jun 15 01:05:12 test sshd[2213]: Connection closed by 112.163.118.61 port 60691 [preauth]
+Jun 15 01:05:41 test sshd[2223]: Accepted publickey for ammoniade95 from 35.235.243.64 port 46543 ssh2: ECDSA SHA256:Fk2GK44jNESIfwcuMCzS1cW3LOtrPCgP+AwiZh08qQQ
+Jun 15 01:05:41 test sshd[2223]: pam_unix(sshd:session): session opened for user ammoniade95 by (uid=0)
+Jun 15 01:05:41 test systemd-logind[881]: New session 3 of user ammoniade95.
+Jun 15 01:06:10 test sudo: ammoniade95 : TTY=pts/1 ; PWD=/home/ammoniade95 ; USER=root ; COMMAND=/usr/bin/apt-get update
+Jun 15 01:06:10 test sudo: ammoniade95 : TTY=pts/1 ; PWD=/home/ammoniade95 ; USER=root ; COMMAND=/usr/bin/apt-get update
+Jun 15 01:06:10 test sudo: pam_unix(sudo:session): session opened for user root by ammoniade95(uid=0)
+Jun 15 01:06:10 test sudo: pam_unix(sudo:session): session opened for user root by ammoniade95(uid=0)
+Jun 15 01:06:13 test sudo: pam_unix(sudo:session): session closed for user root
+Jun 15 01:06:13 test sudo: pam_unix(sudo:session): session closed for user root
+Jun 15 01:06:13 test sudo: ammoniade95 : TTY=pts/1 ; PWD=/home/ammoniade95 ; USER=root ; COMMAND=/usr/bin/apt-get install auditd
+Jun 15 01:06:13 test sudo: ammoniade95 : TTY=pts/1 ; PWD=/home/ammoniade95 ; USER=root ; COMMAND=/usr/bin/apt-get install auditd
+Jun 15 01:06:13 test sudo: pam_unix(sudo:session): session opened for user root by ammoniade95(uid=0)
+Jun 15 01:06:13 test sudo: pam_unix(sudo:session): session opened for user root by ammoniade95(uid=0)
+Jun 15 01:06:28 test sudo: pam_unix(sudo:session): session closed for user root
+Jun 15 01:06:28 test sudo: pam_unix(sudo:session): session closed for user root
+Jun 15 01:06:29 test sudo: ammoniade95 : TTY=pts/1 ; PWD=/home/ammoniade95 ; USER=root ; COMMAND=/usr/bin/systemctl enable auditd
+Jun 15 01:06:29 test sudo: ammoniade95 : TTY=pts/1 ; PWD=/home/ammoniade95 ; USER=root ; COMMAND=/usr/bin/systemctl enable auditd
+Jun 15 01:06:29 test sudo: pam_unix(sudo:session): session opened for user root by ammoniade95(uid=0)
+Jun 15 01:06:29 test sudo: pam_unix(sudo:session): session opened for user root by ammoniade95(uid=0)
+Jun 15 01:06:30 test sudo: pam_unix(sudo:session): session closed for user root
+Jun 15 01:06:30 test sudo: pam_unix(sudo:session): session closed for user root
+Jun 15 01:06:30 test sudo: ammoniade95 : TTY=pts/1 ; PWD=/home/ammoniade95 ; USER=root ; COMMAND=/usr/bin/systemctl start auditd
+Jun 15 01:06:30 test sudo: ammoniade95 : TTY=pts/1 ; PWD=/home/ammoniade95 ; USER=root ; COMMAND=/usr/bin/systemctl start auditd
+Jun 15 01:06:30 test sudo: pam_unix(sudo:session): session opened for user root by ammoniade95(uid=0)
+Jun 15 01:06:30 test sudo: pam_unix(sudo:session): session opened for user root by ammoniade95(uid=0)
+Jun 15 01:06:30 test sudo: pam_unix(sudo:session): session closed for user root
+Jun 15 01:06:30 test sudo: pam_unix(sudo:session): session closed for user root
